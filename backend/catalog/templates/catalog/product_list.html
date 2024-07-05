@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Главная страница {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="catalog">
+        {% for product in products %}
+            <figure class="product">
+                <img class="product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                <figcaption>
+                    <p class="product-name"><b>{{ product.name }}</b></p>
+                    <p class="product-price">{{ product.fix_price }}<span>&#8381;</span></p>
+                    <p class="product-weight">Стоимость за 1 кг</p>
+                    {% if request.user.is_authenticated %}
+                        {% if product.id in products_in_cart %}
+                            <form action="{% url 'cart:cart_remove' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <input class="product-button" type="submit" name="action" value="-">
+                            </form>
+                            {% for cart_product in cart_products %}
+                                {% if cart_product.products_id == product.id %}
+                                    <p>{{ cart_product.weight }} кг</p>
+                                {% endif %}
+                            {% endfor %}
+                            <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <input class="product-button" type="submit" name="action" value="+">
+                            </form>
+                        {% else %}
+                            <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <input class="product-button" type="submit" name="action" value="Добавить в корзину">
+                            </form>
+                        {% endif %}
+                    {% else %}
+                        {% if product.id|stringformat:"s" in products_in_cart %}
+                            <form action="{% url 'cart:cart_remove' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <input class="product-button" type="submit" name="action" value="-">
+                            </form>
+                            {% for cart_product in cart_products %}
+                                {% if cart_product.products_id == product.id %}
+                                    <p>{{ cart_product.weight }} кг</p>
+                                {% endif %}
+                            {% endfor %}
+                            <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <input class="product-button" type="submit" name="action" value="+">
+                            </form>
+                        {% else %}
+                            <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <input class="product-button" type="submit" name="action" value="Добавить в корзину">
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </figcaption> 
+            </figure>
+        {% endfor %}
+    </section>
+    <section class="product-cart-button">
+        <a href="{% url 'cart:cart' %}">
+            <button>Перейти в корзину</button>
+        </a>
+    </section>
+{% endblock %}

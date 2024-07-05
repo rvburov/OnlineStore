@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}История заказов{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/orders-history.css' %}">
+{% endblock %}
+{% block content %}
+    <main>
+        {% if user.is_authenticated %}
+            {% if not history_orders.exists %}
+                <div class="order-history-logo">
+                    <p>Вы ничего не заказали. Самое время выбрать что-то особенное для себя!</p>
+                    <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
+                </div>
+            {% else %}
+                {% for order in history_orders %}
+                    <div class="order-history-info">
+                        <h1>Заказ № {{ order.id }}</h1>
+                        <p>Дата и время доставки: {{ order.time }}</p>
+                        <p class="order-status">Статус заказа: {{ order.get_status_display }}</p>
+                        <p>Имя: {{ order.name }}</p>
+                        <p>Телефон: {{ order.phone }}</p>
+                        <p>Адрес: {{ order.address }}</p>
+                    </div>
+                    <div class="order-history-list-products">
+                        {% for order_item in order.order_item.all %}
+                            <figure class="order-product">
+                                <img class="order-product-img" src="{{ order_item.product_image.url }}" alt="{{ order_item.product_name }}">
+                                <figcaption class="order-product-info">
+                                    <p>{{ order_item.product_name }}</p>
+                                    <p>{{ order_item.product_weight }} кг</p>
+                                    <p>{{ order_item.product_price }} руб</p>
+                                </figcaption>
+                            </figure>
+                        {% endfor %}
+                    </div>
+                    <div class="order-history-total-price">
+                        <p>Итог: {{ order.total_price }} руб</p>
+                        <p>Доставка: {{ order.delivery_price }} руб</p>
+                    </div>
+                    {% if order.status == 'waiting' %}
+                        <form action="{% url 'orders:orders_delete' order.id %}" method="post">
+                            {% csrf_token %}
+                            <input class="order-delete" type="submit" value="Удалить заказ">
+                        </form>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% else %}
+            <p>{{ message }}</p>
+            <p><a href="{% url 'users:account_add' %}">Зарегистрироваться</a></p>
+        {% endif %}
+    </main>
+{% endblock %}
+

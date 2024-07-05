@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titel %} Личный кабинет {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+{% endblock %}
+{% block content %}
+    <figure class="account">
+        {% if not user.image %}
+        <img class="account-logo" src="{% static 'logo/block-user.png' %}" alt="Изображение">
+        {% else %}
+        <img class="account-img" src="{{ user.image.url }}" alt="{{ first_name.name }}">
+        {% endif %}
+        {% if not user.phone %}
+        <p>Имя не заполнено</p>
+        {% else %}
+        <p>{{ user.first_name }}</p>
+        {% endif %}
+        <div>
+            <p>{{ user.email }}</p>
+        </div>
+        <div>
+            <p>************</p>
+        </div>
+        <div>
+            {% if not user.phone %}
+            <p>Телефон не заполнен</p>
+            {% else %}
+            <p>{{ user.phone }}</p>
+            {% endif %}
+        </div>
+        <div>
+            {% if not user.address %}
+            <p>Адрес не заполнен</p>
+            {% else %}
+            <p>{{ user.address }}</p>
+            {% endif %}
+        </div>
+        <a href="{% url 'users:account_update' %}">
+            <button>
+                Изменить данные аккаунта
+            </button>
+        </a>
+        <a href="{% url 'users:password_change' %}">
+            <button>
+                Изменить пароль
+            </button>
+        <a href="{% url 'users:account_delete' %}">
+            <button>
+                Удалить аккаунт
+            </button>
+        </a>
+    </figure>
+{% endblock %}

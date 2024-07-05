@@ -1,0 +1,93 @@
+/* Стили для формы поиска */
+
+.main-search {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main-search input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.main-search input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #1b1c1b;
+    color: white;
+    border: 1px solid #151615;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* Стили для каталога */
+
+.catalog{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.product {
+    background-color: bisque;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 400px;
+    margin: 20px;
+}
+
+.product-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; 
+    border-radius: 10px; 
+    box-sizing: border-box;
+    padding-bottom: 5px;
+}
+
+/* Дополнительные стили для текста и кнопок */
+.product-name {
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #333;
+    padding-bottom: 5px;
+}
+
+.product-weight {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 10px;
+    padding-bottom: 5px;
+}
+
+.product-button{
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+.product-cart-button button{
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.product-cart-button button:hover {
+    color: #FF6347; 
+}

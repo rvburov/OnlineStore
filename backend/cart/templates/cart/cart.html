@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Список покупок {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+{% block content %}
+    <main>
+        {% if request.user.is_authenticated %}
+            <section class="list-cart-products">
+                {% if not carts.exists %}
+                    <div class="cart-logo">
+                        <p>Ваша корзина пуста. Самое время выбрать что-то особенное для себя!</p>
+                        <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
+                    </div>
+                {% else %}
+                    {% for cart in carts %}
+                        <figure class="cart-product">
+                            <img class="cart-product-img" src="{{ cart.products.image.url }}" alt="{{ cart.products.name }}">
+                            <figcaption class="cart-product-info">
+                                <p>{{ cart.products.name }}</p>
+                                <form action="{% url 'cart:cart_remove' cart.products.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input class="cart-product-delete" type="submit" value="-">
+                                </form>
+                                <p>{{ cart.weight }}</p>
+                                <p>кг</p>
+                                <form action="{% url 'cart:cart_add' cart.products.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input class="cart-product-add" type="submit" value="+">
+                                </form>
+                                <p>{{ cart.price }}</p>
+                                <p><span>&#8381</span></p>
+                            </figcaption>
+                        </figure>
+                    {% endfor %}
+                {% endif %}
+            </section>
+        {% else %}
+            <section class="list-cart-products">
+                {% if carts %}
+                    {% for cart in carts %}
+                        <figure class="cart-product">
+                            <img class="cart-product-img" src="{{ cart.product.image.url }}" alt="{{ cart.product.name }}">
+                            <figcaption class="cart-product-info">
+                                <p>{{ cart.product.name }}</p>
+                                <form action="{% url 'cart:cart_remove' cart.product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="product_id" value="{{ cart.product.id }}">
+                                    <input class="cart-product-delete" type="submit" value="-">
+                                </form>
+                                <p>{{ cart.weight }}</p>
+                                <p>кг</p>
+                                <form action="{% url 'cart:cart_add' cart.product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="product_id" value="{{ cart.product.id }}">
+                                    <input class="cart-product-add" type="submit" value="+">
+                                </form>
+                                <p>{{ cart.price }}</p>
+                                <p><span>&#8381;</span></p>
+                            </figcaption>
+                        </figure>
+                    {% endfor %}
+                {% else %}
+                    <div class="cart-logo">
+                        <p>Ваша корзина пуста. Самое время выбрать что-то особенное для себя!</p>
+                        <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
+                    </div>
+                {% endif %}
+            </section>
+        {% endif %}
+        <section class="sum-cart-products">
+            <a href="{% url 'orders:orders' %}">
+            <button>Перейти к заказу {{ total_price }} руб</button>
+            </a>
+        </section>
+    </main>
+{% endblock %}

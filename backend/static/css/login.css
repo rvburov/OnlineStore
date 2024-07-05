@@ -1,0 +1,30 @@
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-registration{
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+}
+
+.login-registration input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login-registration legend{
+    font-size: 30px;
+}
+
+.logout{
+    font-size: 30px;
+}

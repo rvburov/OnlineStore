@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %} Удаление аккаунта {% endblock %}
+{% block content %}
+<form method="post" action="{% url 'users:account_delete' %}">
+    {% csrf_token %}
+    <p>Вы уверены, что хотите удалить свой аккаунт {{ user.email }}?</p>
+    <button type="submit">Удалить</button>
+</form>
+{% endblock %}

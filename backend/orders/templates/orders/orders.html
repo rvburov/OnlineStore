@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Заказ{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+{% endblock %}
+{% block content %}
+    <main>
+        {% if carts %}
+            <div class="order-list-products">
+                {% for cart in carts %}
+                    <figure class="order-product">
+                        <img class="order-product-img" src="{{ cart.products.image.url }}" alt="{{ cart.products.name }}">
+                        <figcaption class="order-product-info">
+                            <p>{{ cart.product.name }}</p>
+                            <p>{{ cart.weight }}</p>
+                            <p>кг</p>
+                            <p>{{ cart.price }} <span>&#8381</span></p>
+                        </figcaption>
+                    </figure>
+                {% endfor %}
+            </div>
+        <div class="order-total-price">
+            <p>Итог: {{ total_price }} <span>&#8381</span></p>
+            <p>Доставка: {{ delivery_price }} <span>&#8381</span></p>
+            <p>Стоимость бесплатной доставки от 1500 рублей.
+               Стоимоть доставки зависит от цены заказа и от адреса.
+               Ознакомиться подробнее.
+            </p>
+        </div>
+        {% if carts %}
+            <form action="{% url 'orders:orders_add' %}" method="post">
+                {% csrf_token %}
+                <div class="order-info">
+                    {{ forms }}
+                </div>
+                <input class="order-pay-button" type="submit" value="Оформить заказ">
+            </form>
+        {% endif %}
+        {% else %}
+            <div class="order-logo">
+                <p>Ваша корзина пуста. Самое время выбрать что-то особенное для себя!</p>
+                <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
+            </div>
+        {% endif %}
+    </main>
+    <script src="{% static 'js/order.js' %}"></script>
+{% endblock %}

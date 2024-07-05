@@ -1,0 +1,46 @@
+<nav>
+    <div class="navigation">
+        <div class="navigation-menu">
+            <a href="{% url 'catalog:product_list' %}">
+                <button class="navigation-btn">
+                    <p>Каталог</p>
+                </button>
+            </a>
+            <a href="{% url 'cart:cart' %}">
+                <button class="navigation-btn">
+                    <p>Корзина</p>
+                </button>
+            </a>
+            <a href="{% url 'orders:orders' %}">
+                <button class="navigation-btn">
+                    <p>Заказ</p>
+                </button>
+            </a>
+            <a href="{% url 'orders:history_orders' %}">
+                <button class="navigation-btn">
+                    <p>История заказов</p>
+                </button>
+            </a>
+        </div>
+        <div class="navigation-login">
+            {% if user.is_authenticated %}
+            <a href="{% url 'users:logout' %}">
+                <button class="navigation-btn">
+                    <p>Выход</p>
+                </button>
+            </a>
+            <a href="{% url 'users:account' %}">
+                <button class="navigation-btn">
+                    <p>Личный кабинет</p>
+                </button>
+            </a>
+            {% else %}
+            <a href="{% url 'users:login' %}">
+                <button class="navigation-btn">
+                    <p>Вход</p>
+                </button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

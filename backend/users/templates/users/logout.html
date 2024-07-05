@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titel %} Вход {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block content %}
+    <p class="logout">Вы вышли из аккаунта</p>
+{% endblock %}
