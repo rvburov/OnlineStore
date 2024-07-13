@@ -1,22 +1,35 @@
 {% load static %}
 <footer>
     <div class="footer-content">
+        <div class="contact-item">
+            <a href="#" class="contact-item-info">
+                <img class="navigation-logo" src="{% static 'logo/info.png' %}" alt="" width="20">
+                О нас
+            </a>
+            <a href="#" class="contact-item-info">
+                <img class="navigation-logo" src="{% static 'logo/delivery.png' %}" alt="" width="20">
+                Доставка
+            </a>
+            <a href="#"class="contact-item-info">
+                <img class="navigation-logo" src="{% static 'logo/promotions.png' %}" alt="" width="20">
+                Акции
+            </a>
+            <a href="#"class="contact-item-info">
+                <img class="navigation-logo" src="{% static 'logo/shield.png' %}" alt="" width="20">
+                Гарантия качества
+            </a>
+        </div>
         <div class="requisites-item">
-            <h1>Реквизиты:</h1>
+            <p>Реквизиты:</p>
             <p>
                 ИП Мамедов<br>
                 ИНН 78327283482<br>
                 Расчетный счет: 408028108384884872
             </p>
-        </div>
-        <div class="contact-item">
-            <a href="#" class="contact-item-info">О нас</a>
-            <a href="#" class="contact-item-info">Доставка</a>
-            <a href="#"class="contact-item-info">Гарантия качества</a>
             <h1>Контакты:</h1>
-            <a href="https://t.me/romanburov89"><img src="{% static 'logo/logo_telegram.jpeg' %}"alt="Telegram" width="40"></a>
-            <a href="https://api.whatsapp.com/send?phone=79046484137&text=Привет!"><img src="{% static 'logo/logo_whatsapp.jpeg' %}"alt="WhatsApp"width="40"></a>
-            <a href="tel:+79046484137"><img src="{% static 'logo/logo_telefon.jpeg' %}"alt="Telefon" width="40"></a>
+            <a href="https://t.me/romanburov89"><img class="contact-item-message" src="{% static 'logo/telegram.png' %}"alt="Telegram"></a>
+            <a href="https://api.whatsapp.com/send?phone=79046484137&text=Привет!"><img class="contact-item-message" src="{% static 'logo/whatsapp.png' %}"alt="WhatsApp"></a>
+            <a href="tel:+79046484137"><img class="contact-item-message" src="{% static 'logo/phone-call.png' %}"alt="Phone-call"></a>
         </div>
     </div>
 </footer>

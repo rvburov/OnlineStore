@@ -1,0 +1,88 @@
+/* Стили для каталога истории заказов */
+
+.order-history-product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 200px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.order-history-product-img{
+    margin-left: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    object-fit: cover; 
+    box-sizing: border-box;
+}
+
+.order-history-product-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    margin-right: 50px;
+    
+}
+
+/* Стили стоимоти заказа */
+
+.order-history-total-price p{
+    font-size: 30px;
+    margin: 20px 200px;
+}
+
+/* Стили данных заказа */
+
+.order-history-info{
+    font-size: 20px;
+    margin: 20px 200px;
+}
+
+/* Стиль кнопки удалить заказ */
+
+.order-delete{
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    margin: 20px 200px;
+}
+
+.order-delete:hover {
+    color: #FF6347; 
+}
+
+/* Стиль логотипа корзины если она пустая */
+
+.order-history-logo{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    margin: 80px;
+    font-size: 30px;
+}
+
+.order-history-logo img{
+    width: 350px;
+    height: 350px;
+    margin: 40px;
+}
+
+
+/* Стиль для просмотра истории заказов необходимо зарегистрироваться */
+
+.order-history-registration{
+    font-size: 30px;
+    margin: 100px 200px;
+}

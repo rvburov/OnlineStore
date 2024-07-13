@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %} Главная страница {% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/desktop_version/catalog.css' %}">
 {% endblock %}
 {% block content %}
     <section class="catalog">
@@ -15,19 +15,21 @@
                     <p class="product-weight">Стоимость за 1 кг</p>
                     {% if request.user.is_authenticated %}
                         {% if product.id in products_in_cart %}
+                        <div class="product-button-container">
                             <form action="{% url 'cart:cart_remove' product.id %}" method="POST">
                                 {% csrf_token %}
-                                <input class="product-button" type="submit" name="action" value="-">
+                                <input class="product-button-delete" type="submit" name="action" value="➖">
                             </form>
                             {% for cart_product in cart_products %}
                                 {% if cart_product.products_id == product.id %}
-                                    <p>{{ cart_product.weight }} кг</p>
+                                    <p class="product-quantity">{{ cart_product.weight }} кг</p>
                                 {% endif %}
                             {% endfor %}
                             <form action="{% url 'cart:cart_add' product.id %}" method="POST">
                                 {% csrf_token %}
-                                <input class="product-button" type="submit" name="action" value="+">
+                                <input class="product-button-add" type="submit" name="action" value="➕">
                             </form>
+                        </div>
                         {% else %}
                             <form action="{% url 'cart:cart_add' product.id %}" method="POST">
                                 {% csrf_token %}
@@ -36,19 +38,21 @@
                         {% endif %}
                     {% else %}
                         {% if product.id|stringformat:"s" in products_in_cart %}
+                        <div class="product-button-container">
                             <form action="{% url 'cart:cart_remove' product.id %}" method="POST">
                                 {% csrf_token %}
-                                <input class="product-button" type="submit" name="action" value="-">
+                                <input class="product-button-delete" type="submit" name="action" value="➖">
                             </form>
                             {% for cart_product in cart_products %}
                                 {% if cart_product.products_id == product.id %}
-                                    <p>{{ cart_product.weight }} кг</p>
+                                    <p class="product-quantity">{{ cart_product.weight }} кг</p>
                                 {% endif %}
                             {% endfor %}
                             <form action="{% url 'cart:cart_add' product.id %}" method="POST">
                                 {% csrf_token %}
-                                <input class="product-button" type="submit" name="action" value="+">
+                                <input class="product-button-add" type="submit" name="action" value="➕">
                             </form>
+                        </div>
                         {% else %}
                             <form action="{% url 'cart:cart_add' product.id %}" method="POST">
                                 {% csrf_token %}

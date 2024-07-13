@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}История заказов{% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/orders-history.css' %}">
+    <link rel="stylesheet" href="{% static 'css/desktop_version/orders-history.css' %}">
 {% endblock %}
 {% block content %}
     <main>
@@ -24,19 +24,19 @@
                     </div>
                     <div class="order-history-list-products">
                         {% for order_item in order.order_item.all %}
-                            <figure class="order-product">
-                                <img class="order-product-img" src="{{ order_item.product_image.url }}" alt="{{ order_item.product_name }}">
-                                <figcaption class="order-product-info">
+                            <figure class="order-history-product">
+                                <img class="order-history-product-img" src="{{ order_item.product_image.url }}" alt="{{ order_item.product_name }}">
+                                <figcaption class="order-history-product-info">
                                     <p>{{ order_item.product_name }}</p>
                                     <p>{{ order_item.product_weight }} кг</p>
-                                    <p>{{ order_item.product_price }} руб</p>
+                                    <p>{{ order_item.product_price }} <span>&#8381</span></p>
                                 </figcaption>
                             </figure>
                         {% endfor %}
                     </div>
                     <div class="order-history-total-price">
-                        <p>Итог: {{ order.total_price }} руб</p>
-                        <p>Доставка: {{ order.delivery_price }} руб</p>
+                        <p>Итог: {{ order.total_price }} <span>&#8381</span></p>
+                        <p>Доставка: {{ order.delivery_price }} <span>&#8381</span></p>
                     </div>
                     {% if order.status == 'waiting' %}
                         <form action="{% url 'orders:orders_delete' order.id %}" method="post">
@@ -47,8 +47,10 @@
                 {% endfor %}
             {% endif %}
         {% else %}
-            <p>{{ message }}</p>
-            <p><a href="{% url 'users:account_add' %}">Зарегистрироваться</a></p>
+            <div class="order-history-registration">
+                <p>{{ message }}</p>
+                <p><a href="{% url 'users:account_add' %}">Зарегистрироваться</a></p>
+            </div>
         {% endif %}
     </main>
 {% endblock %}

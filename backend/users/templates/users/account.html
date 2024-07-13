@@ -2,7 +2,7 @@
 {% load static %}
 {% block titel %} Личный кабинет {% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="{% static 'css/desktop_version/account.css' %}">
 {% endblock %}
 {% block content %}
     <figure class="account">
@@ -45,9 +45,14 @@
             <button>
                 Изменить пароль
             </button>
+        <a href="{% url 'users:logout' %}">
+            <button>
+                Выйти из аккаунта
+            </button>
+        </a>
         <a href="{% url 'users:account_delete' %}">
             <button>
-                Удалить аккаунт
+                Удалить аккаунта
             </button>
         </a>
     </figure>

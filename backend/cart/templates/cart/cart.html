@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %} Список покупок {% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/desktop_version/cart.css' %}">
 {% endblock %}
 {% block content %}
     <main>
@@ -14,6 +14,7 @@
                         <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
                     </div>
                 {% else %}
+                    <p class="cart-list-products">Список продуктов в корзине:</p>
                     {% for cart in carts %}
                         <figure class="cart-product">
                             <img class="cart-product-img" src="{{ cart.products.image.url }}" alt="{{ cart.products.name }}">
@@ -34,11 +35,17 @@
                             </figcaption>
                         </figure>
                     {% endfor %}
+                    <div class="sum-cart-products">
+                        <a href="{% url 'orders:orders' %}">
+                        <button>Перейти к заказу {{ total_price }} <span>&#8381</span></button>
+                        </a>
+                    </div>
                 {% endif %}
             </section>
         {% else %}
             <section class="list-cart-products">
                 {% if carts %}
+                    <p class="cart-list-products">Список продуктов в корзине:</p>
                     {% for cart in carts %}
                         <figure class="cart-product">
                             <img class="cart-product-img" src="{{ cart.product.image.url }}" alt="{{ cart.product.name }}">
@@ -47,20 +54,27 @@
                                 <form action="{% url 'cart:cart_remove' cart.product.id %}" method="post">
                                     {% csrf_token %}
                                     <input type="hidden" name="product_id" value="{{ cart.product.id }}">
-                                    <input class="cart-product-delete" type="submit" value="-">
+                                    <input class="cart-product-delete" type="submit" value="➖">
                                 </form>
                                 <p>{{ cart.weight }}</p>
                                 <p>кг</p>
                                 <form action="{% url 'cart:cart_add' cart.product.id %}" method="post">
                                     {% csrf_token %}
                                     <input type="hidden" name="product_id" value="{{ cart.product.id }}">
-                                    <input class="cart-product-add" type="submit" value="+">
+                                    <input class="cart-product-add" type="submit" value="➕">
                                 </form>
                                 <p>{{ cart.price }}</p>
                                 <p><span>&#8381;</span></p>
                             </figcaption>
                         </figure>
                     {% endfor %}
+                    <div class="sum-cart-products">
+                        <a href="{% url 'orders:orders' %}">
+                            <button>
+                                Перейти к заказу {{ total_price }} <span>&#8381</span>
+                            </button>
+                        </a>
+                    </div>
                 {% else %}
                     <div class="cart-logo">
                         <p>Ваша корзина пуста. Самое время выбрать что-то особенное для себя!</p>
@@ -69,10 +83,5 @@
                 {% endif %}
             </section>
         {% endif %}
-        <section class="sum-cart-products">
-            <a href="{% url 'orders:orders' %}">
-            <button>Перейти к заказу {{ total_price }} руб</button>
-            </a>
-        </section>
     </main>
 {% endblock %}

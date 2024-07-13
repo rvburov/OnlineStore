@@ -1,43 +1,45 @@
+{% load static %}
 <nav>
     <div class="navigation">
         <div class="navigation-menu">
             <a href="{% url 'catalog:product_list' %}">
                 <button class="navigation-btn">
-                    <p>Каталог</p>
+                    <img class="navigation-logo" src="{% static 'logo/fruit.png' %}" alt="" width="25"> 
+                    Каталог    
                 </button>
             </a>
             <a href="{% url 'cart:cart' %}">
                 <button class="navigation-btn">
-                    <p>Корзина</p>
+                    <img class="navigation-logo" src="{% static 'logo/shopping-cart.png' %}" alt="" width="25"> 
+                    Корзина
                 </button>
             </a>
             <a href="{% url 'orders:orders' %}">
                 <button class="navigation-btn">
-                    <p>Заказ</p>
+                    <img class="navigation-logo" src="{% static 'logo/groceries.png' %}" alt="" width="25">
+                    Заказ
                 </button>
             </a>
             <a href="{% url 'orders:history_orders' %}">
                 <button class="navigation-btn">
-                    <p>История заказов</p>
+                    <img class="navigation-logo" src="{% static 'logo/receipt.png' %}" alt="" width="25">
+                    История заказов
                 </button>
             </a>
         </div>
         <div class="navigation-login">
             {% if user.is_authenticated %}
-            <a href="{% url 'users:logout' %}">
-                <button class="navigation-btn">
-                    <p>Выход</p>
-                </button>
-            </a>
             <a href="{% url 'users:account' %}">
                 <button class="navigation-btn">
-                    <p>Личный кабинет</p>
+                    <img class="navigation-logo" src="{% static 'logo/user.png' %}" alt="" width="25">
+                    Личный кабинет
                 </button>
             </a>
             {% else %}
             <a href="{% url 'users:login' %}">
                 <button class="navigation-btn">
-                    <p>Вход</p>
+                    <img class="navigation-logo" src="{% static 'logo/log-in.png' %}" alt="" width="25">
+                    Вход
                 </button>
             </a>
             {% endif %}

@@ -2,8 +2,10 @@
 {% load static %}
 {% block titel %} Вход {% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/desktop_version/login.css' %}">
 {% endblock %}
 {% block content %}
-    <p class="logout">Вы вышли из аккаунта</p>
+    <div class="logout">
+        <p>Вы вышли из аккаунта</p>
+    </div>
 {% endblock %}

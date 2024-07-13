@@ -5,21 +5,22 @@ from django.contrib.auth import login as auth_login, logout as auth_logout, upda
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import CustomUser
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, CustomLoginForm
 from django.contrib.auth import get_user_model
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_decode
 
 
-class LoginView(View):
+class CustomLoginView(View):
+    form_class = CustomLoginForm
     template_name = 'users/login.html'
     
     def get(self, request):
-        form = AuthenticationForm()
+        form = self.form_class()
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
-        form = AuthenticationForm(request, data=request.POST)
+        form = self.form_class(request, data=request.POST) 
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)
@@ -30,7 +31,7 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         auth_logout(request)
-        return redirect('users:login')
+        return render(request, 'users/logout.html')
 
 
 class PasswordChangeView(LoginRequiredMixin, View):

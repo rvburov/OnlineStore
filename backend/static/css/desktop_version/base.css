@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    background: linear-gradient(rgba(239, 233, 46, 0.9), rgba(245, 45, 5, 0.9));
+    background-attachment: fixed;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+main {
+    flex: 1;
+}
+
+/* Навигация */
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.navigation-btn{
+    font-size: 25px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 25px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.navigation-btn:hover {
+    color: #FF6347; 
+}
+
+.navigation-menu a, .navigation-login a {
+    text-decoration: none;
+}
+
+.navigation-btn span{
+    padding: 10px;
+}
+
+.navigation-logo{
+    align-items: center;
+    filter: brightness(0) invert(1);
+    margin-right: 10px;
+}
+
+/* Реквизиты и контакты */
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 30px 50px;
+    line-height: 1.5;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.product-add-button{
+    align-items: center;
+}
+
+.contact-item-info{
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.requisites-item h1{
+    font-size: 20px;
+}
+
+.contact-item-info:hover {
+    color: #FF6347; 
+}
+
+.contact-item-message {
+    filter: brightness(0) invert(1);
+    padding-right: 10px;
+    padding-top: 10px;
+    width: 40px;
+}
+
+.contact-item-message:hover {
+    filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(60deg);
+}
+
+.requisites-item{
+    font-size: 20px;
+}

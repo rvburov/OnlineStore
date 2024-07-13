@@ -2,14 +2,24 @@
 {% load static %}
 {% block title %} Вход {% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/desktop_version/login.css' %}">
 {% endblock %}
 {% block content %}
-<form method="post" action="{% url 'users:login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Войти</button>
-</form>
-<p><a href="{% url 'users:account_add' %}">Регистрация</a></p>
-<p><a href="{% url 'users:password_reset' %}">Забыли пароль?</a></p>
+    <div class="login-item">
+        <p>Вход в личный кабинет</p>
+        <form method="post" action="{% url 'users:login' %}">
+            {% csrf_token %}
+            <label>Электронная почта</label>
+            {{ form.username }}
+            <label>Пароль</label>
+            {{ form.password }}
+            <div class="login-links">
+                <p><a href="{% url 'users:account_add' %}">Регистрация</a></p>
+                <p><a href="{% url 'users:password_reset' %}">Забыли пароль?</a></p>
+            </div>
+            <div class="login-button">
+                <button type="submit">Войти</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

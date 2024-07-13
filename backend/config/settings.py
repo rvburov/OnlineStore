@@ -8,7 +8,11 @@ SECRET_KEY = 'django-insecure-g@!9d%u+*mco59)meg$v56jb#gam5n3n3m72suaf5d+0jb^xgr
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mr-tomato.hopto.org', '84.201.187.46', '127.0.0.1', 'localhost']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://mr-tomato.hopto.org',
+]
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -96,7 +100,8 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [BASE_DIR / 'static',]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -117,9 +122,6 @@ SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
 
 CART_SESSION_ID = 'cart'
-# Хранение сессий в базе данных
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-# Срок действия сессий: один день (86400 секунд)
 SESSION_COOKIE_AGE = 86400
-# Автоматическое обновление срока действия сессии при каждом запросе
 SESSION_SAVE_EVERY_REQUEST = True

@@ -23,7 +23,7 @@
 .account div{
     background-color: white;
     border-radius: 20px;
-    margin: 20px;
+    margin: 10px;
     padding: 20px;
     width: 400px;
 
@@ -31,15 +31,18 @@
 
 .account button{
     background-color: black;
-    border-radius: 20px;
-    margin: 20px;
-    padding: 30px;
-    width: 400px;
-    font-size: 20px;
-    text-decoration: none;
     color: white;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    padding: 20px;
+    width: 440px;
+    font-size: 30px;
+    text-decoration: none;
     cursor: pointer;
 }
+
+/* Если нет изображния пользователя */
 
 .account-logo{
     height: 100px;

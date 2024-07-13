@@ -1,9 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %} Обновление аккаунта {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/desktop_version/login.css' %}">
+{% endblock %}
 {% block content %}
-<form method="post" action="{% url 'users:account_update' %}" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Сохранить</button>
-</form>
+<div class="login-item">
+    <p>Изменить данные аккаунта</p>
+    <form method="post" action="{% url 'users:account_update' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.errors %}
+                <div class="errors">{{ field.errors }}</div>
+            {% endif %}
+        {% endfor %}
+        <div class="login-button">
+            <button type="submit">Сохранить</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

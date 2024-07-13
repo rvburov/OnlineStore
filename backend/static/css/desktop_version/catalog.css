@@ -30,28 +30,28 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 20px;
 }
 
 .product {
-    background-color: bisque;
+    background-color: white;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
     max-width: 400px;
     margin: 20px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .product-img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     object-fit: cover; 
     border-radius: 10px; 
-    box-sizing: border-box;
     padding-bottom: 5px;
 }
 
 /* Дополнительные стили для текста и кнопок */
+
 .product-name {
     font-size: 30px;
     padding-bottom: 10px;
@@ -72,11 +72,50 @@
 
 .product-button{
     font-size: 16px;
-    padding: 5px 10px;
+    padding: 7px 10px;
     border-radius: 10px;
     width: 100%;
     cursor: pointer;
+    border: none;
+    background-color: rgb(220, 220, 220);
 }
+
+.product-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.product-button-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-button-delete, .product-button-add {
+    font-size: 20px;
+    padding: 2px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(220, 220, 220);
+}
+
+.product-button-add:hover {
+    background-color: black;
+    color: white;
+}
+
+.product-button-delete:hover {
+    background-color: black;
+    color: white;
+}
+
+.product-cart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .product-cart-button button{
     border: none;
     background-color: black;
@@ -86,6 +125,7 @@
     border-radius: 10px;
     margin-bottom: 20px;
     cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .product-cart-button button:hover {

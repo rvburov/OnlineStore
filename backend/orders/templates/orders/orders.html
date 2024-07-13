@@ -2,41 +2,54 @@
 {% load static %}
 {% block title %}Заказ{% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+    <link rel="stylesheet" href="{% static 'css/desktop_version/orders.css' %}">
 {% endblock %}
 {% block content %}
     <main>
         {% if carts %}
-            <div class="order-list-products">
-                {% for cart in carts %}
-                    <figure class="order-product">
-                        <img class="order-product-img" src="{{ cart.products.image.url }}" alt="{{ cart.products.name }}">
-                        <figcaption class="order-product-info">
-                            <p>{{ cart.product.name }}</p>
-                            <p>{{ cart.weight }}</p>
-                            <p>кг</p>
-                            <p>{{ cart.price }} <span>&#8381</span></p>
-                        </figcaption>
-                    </figure>
-                {% endfor %}
+            <p class="order-list-products">Список продуктов в заказе:</p>
+            {% for cart in carts %}
+                <figure class="order-product">
+                    <img class="order-product-img" src="{{ cart.products.image.url }}" alt="{{ cart.products.name }}">
+                    <figcaption class="order-product-info">
+                        <p>{{ cart.products.name }}</p>
+                        <p>{{ cart.weight }}</p>
+                        <p>кг</p>
+                        <p>{{ cart.price }} <span>&#8381</span></p>
+                    </figcaption>
+                </figure>
+            {% endfor %}    
+            <div class="order-total-price">
+                <h1>Итог: {{ total_price }} <span>&#8381</span></h1>
+                <h1>Доставка: {{ delivery_price }} <span>&#8381</span></h1>
+                <p>Стоимость бесплатной доставки от 1500 рублей.
+                Стоимоть доставки зависит от цены заказа и от адреса.
+                Ознакомиться подробнее.
+                </p>
             </div>
-        <div class="order-total-price">
-            <p>Итог: {{ total_price }} <span>&#8381</span></p>
-            <p>Доставка: {{ delivery_price }} <span>&#8381</span></p>
-            <p>Стоимость бесплатной доставки от 1500 рублей.
-               Стоимоть доставки зависит от цены заказа и от адреса.
-               Ознакомиться подробнее.
-            </p>
-        </div>
-        {% if carts %}
             <form action="{% url 'orders:orders_add' %}" method="post">
                 {% csrf_token %}
-                <div class="order-info">
-                    {{ forms }}
+                <div class="order-info-pay">
+                    <div class="order-info">
+                        <p>Отправить данные заказа</p>
+                        <label>Имя пользователя</label>
+                        {{ forms.name }}
+                        <label>Телефон</label>
+                        {{ forms.phone }}
+                        <label>Адрес доставки</label>
+                        {{ forms.address }}
+                        <label>Дата и время доставки</label>
+                        {{ forms.time }}
+                        <div class="order-info-check-list">
+                            {{ forms.check_list }}
+                            <label>Согласие на обработку персональных данных</label>
+                        </div>
+                    </div>
+                    <div class="order-pay">
+                        <input class="order-pay-button" type="submit" value="Оформить заказ">
+                    </div>
                 </div>
-                <input class="order-pay-button" type="submit" value="Оформить заказ">
             </form>
-        {% endif %}
         {% else %}
             <div class="order-logo">
                 <p>Ваша корзина пуста. Самое время выбрать что-то особенное для себя!</p>

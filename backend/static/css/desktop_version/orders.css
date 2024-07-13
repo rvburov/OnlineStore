@@ -1,0 +1,133 @@
+/* Стили для каталога заказов */
+
+.order-list-products{
+    margin: 20px 200px;
+    font-size: 30px;
+}
+
+.order-product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 200px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.order-product-img{
+    margin-left: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    object-fit: cover; 
+    box-sizing: border-box;
+}
+
+.order-product-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    margin-right: 50px;
+}
+
+/* Стили стоимоти заказа */
+
+.order-total-price h1{
+    font-size: 30px;
+    margin: 20px 200px;
+}
+
+.order-total-price p{
+    font-size: 20px;
+    margin: 20px 200px;
+}
+
+/* Стили для данных заказа */
+
+.order-info p{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.order-info-pay{
+    background-color: #FF6347;
+    margin: 40px 200px;
+    padding: 10px 40px;
+    border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.order-info label {
+    font-size: 20px;
+}
+
+.order-info input {
+    width: 100%;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 20px;
+    color: #FF6347;
+}
+
+.order-info-check-list{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.order-info-check-list input {
+    width: auto;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+/* Стиль кнопки оформления заказа */
+
+.order-pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-pay-button{
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.order-pay-button:hover {
+    color: #FF6347; 
+}
+
+/* Стиль логотипа корзины если она пустая */
+
+.order-logo{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    margin: 80px;
+    font-size: 30px;
+}
+
+.order-logo img{
+    width: 350px;
+    height: 350px;
+    margin: 40px;
+}

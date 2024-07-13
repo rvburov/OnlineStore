@@ -1,15 +1,23 @@
+/* Стили для каталога корзины */
+
+.cart-list-products{
+    margin: 20px 200px;
+    font-size: 30px;
+}
+
 .cart-product{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: aqua;
+    margin: 20px 200px;
+    background-color: white;
     border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .cart-product-img{
+    margin-left: 50px;
     width: 100px;
     height: 100px;
     border-radius: 20%;
@@ -23,18 +31,27 @@
     align-items: center;
     gap: 10px;
     font-size: 24px;
+    margin-right: 50px;
 }
 
 .cart-product-delete, .cart-product-add{
     border-radius: 50%;
     border: 3px solid black;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(220, 218, 218);
     width: 50px;
     height: 50px;
     cursor: pointer;
     box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
     font-size: 20px;
 }
+
+.sum-cart-products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Кнопка к переходу в заказ */
 
 .sum-cart-products button{
     border: none;
@@ -43,7 +60,7 @@
     font-size: 30px;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     cursor: pointer;
 }
 
@@ -51,11 +68,19 @@
     color: #FF6347; 
 }
 
+/* Логотип корзины если она пустая */
+
 .cart-logo{
     display: flex;
     justify-content: center; 
     align-items: center;
     flex-direction: column;
-    margin: 20px;
+    margin: 80px;
     font-size: 30px;
+}
+
+.cart-logo img{
+    width: 350px;
+    height: 350px;
+    margin: 40px;
 }
