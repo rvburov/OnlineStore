@@ -79,6 +79,7 @@
     cursor: pointer;
     border: none;
     background-color: rgb(220, 220, 220);
+    color: black;
 }
 
 .product-button:hover {
@@ -148,6 +149,8 @@
     }
     .product-cart-button button{
         margin-bottom: 100px;
+        font-size: 20px;
+        padding: 10px;
     }
 }
 @media (max-width: 400px) {

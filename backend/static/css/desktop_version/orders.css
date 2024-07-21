@@ -179,9 +179,11 @@
         margin: 10px;
     }
     .order-info-pay{
-        padding: 10px 40px;
-        margin: 20px 0;
-        width: 400px;
+        padding: 10px;
+        margin: 10px 0;
+        width: 500px;
+        background-color: transparent; 
+        box-shadow: none;
     }
     .order-info p{
         font-size: 25px;
@@ -215,7 +217,7 @@
     }
     
     .order-product-info{
-        font-size: 17px;
+        font-size: 20px;
         margin-right: 10px;
     }
 
@@ -233,9 +235,8 @@
         margin: 10px;
     }
     .order-info-pay{
-        padding: 10px 30px;
         margin: 20px 0;
-        width: 300px;
+        width: 370px;
     }
     .order-info p{
         font-size: 25px;
@@ -264,15 +265,12 @@
         height: 65px;
     }
     .order-product-info{
-        font-size: 17px;
         margin-right: 10px;
     }
     .order-total-price{
         width: 350px;
     }
     .order-info-pay{
-        padding: 10px 20px;
-        margin: 20px 0;
-        width: 300px;
+        width: 340px;
     }
 }
