@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Ошибка 500{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/desktop_version/core.css' %}">
+{% endblock %}
+{% block content %}
+<div class="core">
+    <div>
+        <h1>Ошибка 500</h1>
+        <p>Произошла ошибка на сервере. Пожалуйста, попробуйте позже.</p>
+    </div>
+</div>
+{% endblock %}

@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-g@!9d%u+*mco59)meg$v56jb#gam5n3n3m72suaf5d+0jb^xgr'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mr-tomato.hopto.org', '84.201.187.46', '127.0.0.1', 'localhost']
 
@@ -33,6 +33,7 @@ THIRD_PARTY_APPS = [
     'catalog',
     'cart',
     'homepages',
+    'core',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Ошибка 403{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/desktop_version/core.css' %}">
+{% endblock %}
+{% block content %}
+<div class="core">
+    <div>
+        <h1>Ошибка доступа 403</h1>
+        <p>К сожалению, у вас нет прав для доступа к этой странице.</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Ошибка 400{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/desktop_version/core.css' %}">
+{% endblock %}
+{% block content %}
+<div class="core">
+    <div>
+        <h1>Ошибка 400</h1>
+        <p>Ваш запрос не может быть обработан. Пожалуйста, проверьте введенные данные и попробуйте снова.</p>
+    </div>
+</div>
+{% endblock %}
