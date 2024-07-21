@@ -189,4 +189,7 @@
     .order-history-total-price{
         width: 350px;
     }
+    .order-history-registration{
+        margin: 300px 0;
+    }
 }

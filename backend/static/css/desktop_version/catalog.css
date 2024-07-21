@@ -173,7 +173,10 @@
     .product-button{
         font-size: 15px;
         padding: 6px 5px;
-        border-radius: 10px;
+        border-radius: 5px;
+    }
+    .product-button-delete, .product-button-add {
+        border-radius: 5px;
     }
 }
 @media (max-width: 370px) {
@@ -195,7 +198,11 @@
     }
     .product-button{
         font-size: 15px;
-        padding: 6px 5px;
-        border-radius: 10px;
+        padding: 6px 0px;
+        border-radius: 5px;
+    }
+    .product-button-delete, .product-button-add {
+        font-size: 15px;
+        padding: 4px 10px;
     }
 }

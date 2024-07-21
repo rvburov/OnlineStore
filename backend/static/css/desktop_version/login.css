@@ -154,3 +154,8 @@
         padding-top: 200px;
     }
 }
+@media (max-width: 375px) {
+    .login-container{
+        margin: 70px 0px;
+    }
+}
