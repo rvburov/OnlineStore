@@ -4,27 +4,31 @@
     padding: 0;
     font-family: 'Oswald', sans-serif;
 }
-
-html, body {
+html, body{
     height: 100%;
 }
-
-html {
+html{
     background: linear-gradient(rgba(239, 233, 46, 0.9), rgba(245, 45, 5, 0.9));
     background-attachment: fixed;
 }
-
-body {
-    display: flex;
-    flex-direction: column;
-    max-width: 1200px;
+body{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    max-width: 1300px;
     margin: 0 auto;
-    padding-right: 50px;
-    padding-left: 50px;
 }
-
+header {
+    grid-area: header;
+}
 main {
-    flex: 1;
+    grid-area: main;
+}
+footer {
+    grid-area: footer;
 }
 
 /* Навигация */
@@ -37,79 +41,245 @@ main {
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    margin: 10px 40px;
+    overflow: hidden;
 }
-
+.navigation-menu{
+    display: flex;
+    align-items: center;
+}
 .navigation-btn{
+    display: flex;
+    align-items: center;
     font-size: 25px;
     border-radius: 10px;
     border: none;
-    padding: 10px 25px;
+    padding: 10px 20px;
     color: white;
-    background-color: rgb(0, 0, 0);
+    background-color: black;
     cursor: pointer;
 }
-
 .navigation-btn:hover {
     color: #FF6347; 
 }
-
 .navigation-menu a, .navigation-login a {
     text-decoration: none;
 }
-
-.navigation-btn span{
-    padding: 10px;
-}
-
 .navigation-logo{
     align-items: center;
     filter: brightness(0) invert(1);
-    margin-right: 10px;
+    margin-right: 8px;
+    width: 25px;
 }
 
 /* Реквизиты и контакты */
 
 .footer-content{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     background-color: black;
     color: white;
-    border-radius: 10px;
     padding: 30px 50px;
     line-height: 1.5;
+    border-radius: 5px 5px 0 0;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-
+.footer-content-item{
+    display: flex;
+    justify-content: space-between;
+}
+.footer-logo{
+    align-items: center;
+    filter: brightness(0) invert(1);
+    margin-right: 8px;
+    width: 25px;
+}
 .product-add-button{
     align-items: center;
 }
-
 .contact-item-info{
     display: block;
     text-decoration: none;
     color: white;
     font-size: 20px;
 }
-
 .requisites-item h1{
     font-size: 20px;
 }
-
 .contact-item-info:hover {
     color: #FF6347; 
 }
-
 .contact-item-message {
     filter: brightness(0) invert(1);
     padding-right: 10px;
     padding-top: 10px;
     width: 40px;
 }
-
 .contact-item-message:hover {
     filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(60deg);
 }
 
 .requisites-item{
     font-size: 20px;
+}
+.footer-logo-close{
+    display: none;
+}
+.footer-logo-open{
+    display: none;
+}
+.footer-menu {
+    display: none;
+}
+
+/* Адаптив под мобильную версию */
+
+@media (max-width: 820px) {
+    body{
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "footer"
+            "main"
+            "header";
+        margin: 0 auto;
+    }
+
+    /* Навигация */
+
+    .navigation{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        border-radius: 10px;
+        padding: 0px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        margin: 5px 5px;
+        position: fixed;
+        z-index: 1000;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .navigation-menu{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navigation-btn{
+        display: block;
+        justify-content: space-between;
+        font-size: 20px;
+        border-radius: 10px;
+        border: none;
+        padding: 0px 0px;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+        margin: 5px 0;
+        width: 72px;
+    }
+    .navigation-btn:hover {
+        color: #FF6347; 
+    }
+    .navigation-menu a, .navigation-login a {
+        text-decoration: none;
+    }
+    .navigation-logo{
+        filter: brightness(0) invert(1);
+        margin-right: 0px;
+        width: 35px;
+        margin-top: 5px;
+    }
+    /* Реквизиты и контакты */
+
+    .footer-content{
+        background-color: black;
+        color: white;
+        margin: 5px 5px;
+        line-height: 1.5;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px;
+    }
+    .footer-content-item-adaptiv{
+        position: fixed;
+        z-index: 1000;
+        top: 18px;
+        right: 30px;
+    }
+    .footer-logo-open{
+        display: flex;
+        width: 30px;
+        filter: brightness(0) invert(1);
+        cursor: pointer;
+    }
+    .footer-menu {
+        display: flex;
+        text-align: center;
+        font-size: 20px;
+    }
+    
+    .footer-menu.active {
+        display: none;
+    }
+    
+    /* Реквизиты и контакты меню открыть */
+
+    .footer-content-item{
+        display: none;
+        flex-direction: column;
+    }
+    .footer-logo-close{
+        display: none;
+        justify-content: space-between;
+        width: 30px;
+        filter: brightness(0) invert(1);
+        cursor: pointer;
+    }
+    .footer-logo{
+        width: 30px;
+    }
+    .contact-item-info{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .contact-item-info:hover{
+        color: #FF6347; 
+    }
+    .contact-item-message{
+        filter: brightness(0) invert(1);
+        padding-right: 10px;
+        padding-top: 10px;
+        width: 40px;
+    }
+    .contact-item-message:hover{
+        filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(60deg);
+    }
+    .requisites-item{
+        font-size: 15px;
+        margin-top: 20px;
+    }
+    .requisites-item h1{
+        font-size: 15px;
+    }
+
+    .footer-content-item.active{
+        display: flex;
+    }
+    .footer-logo-close.active{
+        display: flex;
+    }
+    .footer-logo-open.active{
+        display: none;
+    }
 }

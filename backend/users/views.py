@@ -11,16 +11,15 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_decode
 
 
-class CustomLoginView(View):
-    form_class = CustomLoginForm
+class LoginView(View):
     template_name = 'users/login.html'
-    
+
     def get(self, request):
-        form = self.form_class()
+        form = CustomLoginForm()
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
-        form = self.form_class(request, data=request.POST) 
+        form = CustomLoginForm(data=request.POST)
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)

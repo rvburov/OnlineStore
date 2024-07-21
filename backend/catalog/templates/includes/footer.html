@@ -1,35 +1,39 @@
 {% load static %}
 <footer>
     <div class="footer-content">
-        <div class="contact-item">
-            <a href="#" class="contact-item-info">
-                <img class="navigation-logo" src="{% static 'logo/info.png' %}" alt="" width="20">
-                О нас
-            </a>
-            <a href="#" class="contact-item-info">
-                <img class="navigation-logo" src="{% static 'logo/delivery.png' %}" alt="" width="20">
-                Доставка
-            </a>
-            <a href="#"class="contact-item-info">
-                <img class="navigation-logo" src="{% static 'logo/promotions.png' %}" alt="" width="20">
-                Акции
-            </a>
-            <a href="#"class="contact-item-info">
-                <img class="navigation-logo" src="{% static 'logo/shield.png' %}" alt="" width="20">
-                Гарантия качества
-            </a>
+        <div class="footer-content-item">
+            <div class="contact-item">
+                <a href="{% url 'homepages:about_us' %}" class="contact-item-info">
+                    <img class="footer-logo" src="{% static 'logo/info.png' %}" alt="">
+                    О нас
+                </a>
+                <a href="{% url 'homepages:delivery' %}" class="contact-item-info">
+                    <img class="footer-logo" src="{% static 'logo/delivery.png' %}" alt="">
+                    Доставка
+                </a>
+                <a href="{% url 'homepages:promotions' %}"class="contact-item-info">
+                    <img class="footer-logo" src="{% static 'logo/promotions.png' %}" alt="">
+                    Акции
+                </a>
+                <a href="{% url 'homepages:quality_assurance' %}"class="contact-item-info">
+                    <img class="footer-logo" src="{% static 'logo/shield.png' %}" alt="">
+                    Гарантия качества
+                </a>
+            </div>
+            <div class="requisites-item">
+                <h1>Контакты:</h1>
+                <a href="https://t.me/romanburov89"><img class="contact-item-message" src="{% static 'logo/telegram.png' %}"alt="Telegram"></a>
+                <a href="https://api.whatsapp.com/send?phone=79046484137&text=Привет!"><img class="contact-item-message" src="{% static 'logo/whatsapp.png' %}"alt="WhatsApp"></a>
+                <a href="tel:+79046484137"><img class="contact-item-message" src="{% static 'logo/phone-call.png' %}"alt="Phone-call"></a>
+            </div>
         </div>
-        <div class="requisites-item">
-            <p>Реквизиты:</p>
-            <p>
-                ИП Мамедов<br>
-                ИНН 78327283482<br>
-                Расчетный счет: 408028108384884872
-            </p>
-            <h1>Контакты:</h1>
-            <a href="https://t.me/romanburov89"><img class="contact-item-message" src="{% static 'logo/telegram.png' %}"alt="Telegram"></a>
-            <a href="https://api.whatsapp.com/send?phone=79046484137&text=Привет!"><img class="contact-item-message" src="{% static 'logo/whatsapp.png' %}"alt="WhatsApp"></a>
-            <a href="tel:+79046484137"><img class="contact-item-message" src="{% static 'logo/phone-call.png' %}"alt="Phone-call"></a>
+        <div class="footer-content-item-adaptiv">
+            <img class="footer-logo-close" src="{% static 'logo/close.png' %}" alt="">
+            <img class="footer-logo-open" src="{% static 'logo/menu-open.png' %}" alt="">
+        </div>
+        <div class="footer-menu">
+            <p>МЕНЮ</p>
         </div>
     </div>
 </footer>
+<script src="{% static 'js/footer.js' %}"></script>

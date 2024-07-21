@@ -32,6 +32,7 @@ THIRD_PARTY_APPS = [
     'orders',
     'catalog',
     'cart',
+    'homepages',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS

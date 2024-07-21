@@ -1,7 +1,13 @@
 /* Стили для каталога корзины */
 
+.list-cart-products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .cart-list-products{
-    margin: 20px 200px;
+    margin: 10px;
     font-size: 30px;
 }
 
@@ -9,15 +15,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    margin: 20px 200px;
+    margin: 10px;
+    width: 700px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .cart-product-img{
-    margin-left: 50px;
+    margin-left: 20px;
     width: 100px;
     height: 100px;
     border-radius: 20%;
@@ -75,12 +81,100 @@
     justify-content: center; 
     align-items: center;
     flex-direction: column;
-    margin: 80px;
     font-size: 30px;
+    margin-top: 150px;
 }
 
 .cart-logo img{
     width: 350px;
     height: 350px;
-    margin: 40px;
+    margin-top: 40px;
+}
+
+@media (max-width: 820px) {
+    .cart-list-products{
+        font-size: 25px;
+    }
+    .list-cart-products{
+        margin-top: 70px;
+        margin-bottom: 100px;
+    }
+    .cart-product{
+        margin: 10px;
+        width: 500px;
+    }
+    .cart-product-img{
+        width: 80px;
+        height: 80px;
+        margin-left: 20px;
+    }
+    
+    .cart-product-info{
+        font-size: 20px;
+        margin-right: 20px;
+    }
+    
+    .cart-product-delete, .cart-product-add{
+        width: 50px;
+        height: 50px;
+        font-size: 15px;
+    }
+    .sum-cart-products button{
+        font-size: 20px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .cart-product{
+        width: 380px;
+    }
+    .cart-product-img{
+        width: 70px;
+        height: 70px;
+        margin-left: 10px;
+    }
+    .cart-product-info{
+        font-size: 17px;
+        margin-right: 10px;
+        gap: 5px;
+    }
+    
+    .cart-product-delete, .cart-product-add{
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+    .sum-cart-products button{
+        font-size: 20px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .cart-product{
+        width: 350px;
+    }
+    .cart-product-img{
+        width: 65px;
+        height: 65px;
+    }
+    .cart-product-info{
+        font-size: 17px;
+        margin-right: 10px;
+        gap: 5px;
+    }
+    .cart-product-delete, .cart-product-add{
+        width: 35px;
+        height: 35px;
+        font-size: 13px;
+    }
+    .sum-cart-products button{
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 20px 0;
+    }
 }

@@ -10,11 +10,13 @@
             <section class="list-cart-products">
                 {% if not carts.exists %}
                     <div class="cart-logo">
-                        <p>Ваша корзина пуста. Самое время выбрать что-то особенное для себя!</p>
+                        <p>Ваша корзина пуста!</p>
                         <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
                     </div>
                 {% else %}
-                    <p class="cart-list-products">Список продуктов в корзине:</p>
+                    <p class="cart-list-products">
+                        Список продуктов в корзине:
+                    </p>
                     {% for cart in carts %}
                         <figure class="cart-product">
                             <img class="cart-product-img" src="{{ cart.products.image.url }}" alt="{{ cart.products.name }}">
@@ -22,13 +24,13 @@
                                 <p>{{ cart.products.name }}</p>
                                 <form action="{% url 'cart:cart_remove' cart.products.id %}" method="post">
                                     {% csrf_token %}
-                                    <input class="cart-product-delete" type="submit" value="-">
+                                    <input class="cart-product-delete" type="submit" value="➖">
                                 </form>
                                 <p>{{ cart.weight }}</p>
                                 <p>кг</p>
                                 <form action="{% url 'cart:cart_add' cart.products.id %}" method="post">
                                     {% csrf_token %}
-                                    <input class="cart-product-add" type="submit" value="+">
+                                    <input class="cart-product-add" type="submit" value="➕">
                                 </form>
                                 <p>{{ cart.price }}</p>
                                 <p><span>&#8381</span></p>
@@ -45,7 +47,9 @@
         {% else %}
             <section class="list-cart-products">
                 {% if carts %}
-                    <p class="cart-list-products">Список продуктов в корзине:</p>
+                    <p class="cart-list-products">
+                        Список продуктов в корзине:
+                    </p>
                     {% for cart in carts %}
                         <figure class="cart-product">
                             <img class="cart-product-img" src="{{ cart.product.image.url }}" alt="{{ cart.product.name }}">
@@ -77,7 +81,7 @@
                     </div>
                 {% else %}
                     <div class="cart-logo">
-                        <p>Ваша корзина пуста. Самое время выбрать что-то особенное для себя!</p>
+                        <p>Ваша корзина пуста!</p>
                         <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
                     </div>
                 {% endif %}

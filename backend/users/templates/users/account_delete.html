@@ -5,11 +5,12 @@
 <link rel="stylesheet" href="{% static 'css/desktop_version/login.css' %}">
 {% endblock %}
 {% block content %}
-<div class="logout">
+<div class="login-container">
     <form method="post" action="{% url 'users:account_delete' %}">
         {% csrf_token %}
-        <div class="account_delete">
-            <p>Вы уверены, что хотите удалить свой аккаунт {{ user.email }}?</p>
+        <div class="account-delete">
+            <p>Вы уверены, что хотите удалить свой аккаунт?</p>
+            <p style="color: red;">{{ user.email }}</p>
             <div class="login-button">
                 <button type="submit">Удалить</button>
             </div>

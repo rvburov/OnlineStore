@@ -7,6 +7,7 @@
 {% block content %}
     <main>
         {% if carts %}
+        <div class="list-order-products">
             <p class="order-list-products">Список продуктов в заказе:</p>
             {% for cart in carts %}
                 <figure class="order-product">
@@ -50,11 +51,12 @@
                     </div>
                 </div>
             </form>
+        </div>
         {% else %}
-            <div class="order-logo">
-                <p>Ваша корзина пуста. Самое время выбрать что-то особенное для себя!</p>
-                <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
-            </div>
+        <div class="order-logo">
+            <p>Ваша корзина пуста!</p>
+            <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
+        </div>
         {% endif %}
     </main>
     <script src="{% static 'js/order.js' %}"></script>

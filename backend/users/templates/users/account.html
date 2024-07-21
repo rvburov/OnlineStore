@@ -7,15 +7,17 @@
 {% block content %}
     <figure class="account">
         {% if not user.image %}
-        <img class="account-logo" src="{% static 'logo/block-user.png' %}" alt="Изображение">
+            <img class="account-logo" src="{% static 'logo/block-user.png' %}" alt="Изображение">
         {% else %}
-        <img class="account-img" src="{{ user.image.url }}" alt="{{ first_name.name }}">
+            <img class="account-img" src="{{ user.image.url }}" alt="{{ first_name.name }}">
         {% endif %}
-        {% if not user.phone %}
-        <p>Имя не заполнено</p>
+
+        {% if not user.first_name %}
+            <h1>Имя не заполнено</h1>
         {% else %}
-        <p>{{ user.first_name }}</p>
+            <h1>{{ user.first_name }}</h1>
         {% endif %}
+
         <div>
             <p>{{ user.email }}</p>
         </div>
@@ -24,16 +26,16 @@
         </div>
         <div>
             {% if not user.phone %}
-            <p>Телефон не заполнен</p>
+                <p>Телефон не заполнен</p>
             {% else %}
-            <p>{{ user.phone }}</p>
+                <p>{{ user.phone }}</p>
             {% endif %}
         </div>
         <div>
             {% if not user.address %}
-            <p>Адрес не заполнен</p>
+                <p>Адрес не заполнен</p>
             {% else %}
-            <p>{{ user.address }}</p>
+                <p>{{ user.address }}</p>
             {% endif %}
         </div>
         <a href="{% url 'users:account_update' %}">

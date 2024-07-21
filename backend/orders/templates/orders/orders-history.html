@@ -9,18 +9,19 @@
         {% if user.is_authenticated %}
             {% if not history_orders.exists %}
                 <div class="order-history-logo">
-                    <p>Вы ничего не заказали. Самое время выбрать что-то особенное для себя!</p>
+                    <p>Вы ничего не заказали!</p>
                     <img src="{% static 'logo/cart-empty.png' %}" alt="Изображение">
                 </div>
             {% else %}
+            <div class="list-order-history-products">
                 {% for order in history_orders %}
                     <div class="order-history-info">
-                        <h1>Заказ № {{ order.id }}</h1>
-                        <p>Дата и время доставки: {{ order.time }}</p>
-                        <p class="order-status">Статус заказа: {{ order.get_status_display }}</p>
-                        <p>Имя: {{ order.name }}</p>
-                        <p>Телефон: {{ order.phone }}</p>
-                        <p>Адрес: {{ order.address }}</p>
+                        <h1>Заказ {{ order.id }}</h1>
+                        <p> - Дата и время доставки: {{ order.time }}</p>
+                        <p class="order-status"> - Статус заказа: {{ order.get_status_display }}</p>
+                        <p> - Имя: {{ order.name }}</p>
+                        <p> - Телефон: {{ order.phone }}</p>
+                        <p> - Адрес: {{ order.address }}</p>
                     </div>
                     <div class="order-history-list-products">
                         {% for order_item in order.order_item.all %}
@@ -45,6 +46,7 @@
                         </form>
                     {% endif %}
                 {% endfor %}
+            </div>
             {% endif %}
         {% else %}
             <div class="order-history-registration">

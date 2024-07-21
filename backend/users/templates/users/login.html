@@ -5,14 +5,20 @@
 <link rel="stylesheet" href="{% static 'css/desktop_version/login.css' %}">
 {% endblock %}
 {% block content %}
+<div class="login-container">
     <div class="login-item">
-        <p>Вход в личный кабинет</p>
+        <p>Вход</p>
         <form method="post" action="{% url 'users:login' %}">
             {% csrf_token %}
-            <label>Электронная почта</label>
-            {{ form.username }}
-            <label>Пароль</label>
-            {{ form.password }}
+            {% for field in form %}
+                {{ field.label_tag }}
+                {{ field }}
+            {% endfor %}
+            <div class="errors">
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
             <div class="login-links">
                 <p><a href="{% url 'users:account_add' %}">Регистрация</a></p>
                 <p><a href="{% url 'users:password_reset' %}">Забыли пароль?</a></p>
@@ -22,4 +28,5 @@
             </div>
         </form>
     </div>
+</div>
 {% endblock %}

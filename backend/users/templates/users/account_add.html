@@ -5,28 +5,31 @@
 <link rel="stylesheet" href="{% static 'css/desktop_version/login.css' %}">
 {% endblock %}
 {% block content %}
-<div class="login-item">
-    <p>Регистрация личного кабинета</p>
-    <form method="post" action="{% url 'users:account_add' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-password-change">
-            {% for field in form %}
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.errors %}
-                    <div class="errors">{{ field.errors }}</div>
-                {% endif %}
-            {% endfor %}
-            <p>
-                - Пароль не должен быть слишком похож на другую вашу личную информацию.<br>
-                - Ваш пароль должен содержать как минимум 8 символов.<br>
-                - Пароль не должен быть слишком простым и распространенным.<br>
-                - Пароль не может состоять только из цифр.<br>
-            </p>
-        </div>
-        <div class="login-button">
-            <button type="submit">Зарегистрироваться</button>
-        </div>
-    </form>
+<div class="login-container">
+    <div class="login-item">
+        <p>Регистрация</p>
+        <form method="post" action="{% url 'users:account_add' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-registration">
+                {% for field in form %}
+                    {{ field.label_tag }}
+                    {{ field }}
+                    
+                    {% if field.errors %}
+                        <div class="errors">{{ field.errors }}</div>
+                    {% endif %}
+                {% endfor %}
+                <p>
+                    - Пароль не должен быть слишком похож на другую вашу личную информацию.<br>
+                    - Ваш пароль должен содержать как минимум 8 символов.<br>
+                    - Пароль не должен быть слишком простым и распространенным.<br>
+                    - Пароль не может состоять только из цифр.<br>
+                </p>
+            </div>
+            <div class="login-button">
+                <button type="submit">Зарегистрироваться</button>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

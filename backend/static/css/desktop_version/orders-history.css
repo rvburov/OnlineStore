@@ -1,18 +1,23 @@
 /* Стили для каталога истории заказов */
 
+.list-order-history-products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .order-history-product{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    margin: 20px 200px;
+    margin: 10px;
+    width: 700px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .order-history-product-img{
-    margin-left: 50px;
+    margin-left: 20px;
     width: 100px;
     height: 100px;
     border-radius: 20%;
@@ -27,21 +32,29 @@
     gap: 10px;
     font-size: 24px;
     margin-right: 50px;
-    
-}
-
-/* Стили стоимоти заказа */
-
-.order-history-total-price p{
-    font-size: 30px;
-    margin: 20px 200px;
 }
 
 /* Стили данных заказа */
 
 .order-history-info{
+    width: 700px;
+}
+.order-history-info h1{
+    font-size: 30px;
+    margin: 10px 10px;
+}
+.order-history-info p{
     font-size: 20px;
-    margin: 20px 200px;
+    margin: 5px 10px;
+}
+
+/* Стили стоимоти заказа */
+.order-history-total-price{
+    width: 700px;
+}
+.order-history-total-price p{
+    font-size: 30px;
+    margin: 10px;
 }
 
 /* Стиль кнопки удалить заказ */
@@ -55,7 +68,6 @@
     border-radius: 10px;
     margin-bottom: 20px;
     cursor: pointer;
-    margin: 20px 200px;
 }
 
 .order-delete:hover {
@@ -69,20 +81,101 @@
     justify-content: center; 
     align-items: center;
     flex-direction: column;
-    margin: 80px;
     font-size: 30px;
+    margin-top: 150px;
 }
 
 .order-history-logo img{
     width: 350px;
     height: 350px;
-    margin: 40px;
+    margin-top: 40px;
 }
-
 
 /* Стиль для просмотра истории заказов необходимо зарегистрироваться */
 
 .order-history-registration{
     font-size: 30px;
-    margin: 100px 200px;
+}
+
+@media (max-width: 820px) {
+    .list-order-history-products{
+        margin-top: 70px;
+        margin-bottom: 100px;
+    }
+    .order-history-product{
+        margin: 10px;
+        width: 500px;
+    }
+    .order-history-product-img{
+        width: 80px;
+        height: 80px;
+        margin-left: 20px;
+    }
+    
+    .order-history-product-info{
+        font-size: 20px;
+        margin-right: 20px;
+    }
+    .order-history-info{
+        width: 500px;
+    }
+    .order-history-total-price{
+        width: 500px;
+    }
+    .order-history-total-price p{
+        font-size: 20px;
+        margin: 10px;
+    }
+    .order-delete{
+        font-size: 20px;
+        padding: 20px;
+        margin-bottom: 20px 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .order-history-product{
+        width: 380px;
+    }
+    .order-history-product-img{
+        width: 70px;
+        height: 70px;
+        margin-left: 10px;
+    }
+    
+    .order-history-product-info{
+        font-size: 17px;
+        margin-right: 10px;
+    }
+    .order-history-info{
+        width: 380px;
+    }
+    .order-history-total-price{
+        width: 380px;
+    }
+    .order-history-total-price p{
+        font-size: 20px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .order-history-product{
+        width: 350px;
+    }
+    .order-history-product-img{
+        width: 65px;
+        height: 65px;
+    }
+    
+    .order-history-product-info{
+        font-size: 17px;
+        margin-right: 10px;
+    }
+    .order-history-info{
+        width: 350px;
+    }
+    .order-history-total-price{
+        width: 350px;
+    }
 }

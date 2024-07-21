@@ -1,0 +1,117 @@
+.homepages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+}
+.about-us{
+    width: 900px;
+}
+.about-us h1{
+    margin: 20px 0;
+    font-size: 30px;
+}
+.about-us p{
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+.delivery {
+    width: 900px;
+}
+.delivery h1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 35px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.delivery h2{
+    font-size: 30px;
+    margin: 25px 0;
+}
+.delivery p{
+    line-height: 1.5;
+    font-weight: 300;
+    font-size: 20px;
+}
+.delivery strong{
+    font-weight: 400;
+}
+.quality_assurance{
+    width: 900px;
+}
+.quality_assurance h2{
+    font-size: 30px;
+    margin: 25px 0;
+}
+.quality_assurance p{
+    line-height: 1.5;
+    font-weight: 300;
+    font-size: 20px;
+}
+.quality_assurance strong{
+    font-weight: 400;
+}
+.promotions{
+    width: 900px;
+}
+.promotions h2{
+    font-size: 30px;
+    margin: 25px 0;
+}
+.promotions p{
+    line-height: 1.5;
+    font-weight: 300;
+    font-size: 20px;
+}
+.promotions strong{
+    font-weight: 400;
+}
+@media (max-width: 820px) {
+    .homepages{
+        margin: 100px 0;
+    }
+    .about-us{
+        width: 700px;
+    }
+    .delivery {
+        width: 700px;
+    }
+    .quality_assurance{
+        width: 700px;
+    }
+    .promotions{
+        width: 700px;
+    }
+}
+@media (max-width: 430px) {
+    .about-us{
+        width: 370px;
+    }
+    .delivery {
+        width: 370px;
+    }
+    .quality_assurance{
+        width: 370px;
+    }
+    .promotions{
+        width: 370px;
+    }
+}
+@media (max-width: 375px) {
+    .about-us{
+        width: 340px;
+    }
+    .delivery {
+        width: 340px;
+    }
+    .quality_assurance{
+        width: 340px;
+    }
+    .promotions{
+        width: 340px;
+    }
+}
