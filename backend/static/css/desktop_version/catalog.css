@@ -95,7 +95,7 @@
 
 .product-button-delete, .product-button-add {
     font-size: 20px;
-    padding: 2px 15px;
+    padding: 3px 12px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -155,8 +155,8 @@
 }
 @media (max-width: 400px) {
     .product-img {
-        width: 140px;
-        height: 140px;
+        width: 130px;
+        height: 130px;
     }
     .catalog{
         padding-left: 7px;
@@ -169,5 +169,33 @@
     .product-name {
         font-size: 25px;
         padding-bottom: 5px;
+    }
+    .product-button{
+        font-size: 15px;
+        padding: 6px 5px;
+        border-radius: 10px;
+    }
+}
+@media (max-width: 370px) {
+    .product-img {
+        width: 130px;
+        height: 130px;
+    }
+    .catalog{
+        padding-left: 7px;
+        padding-right: 7px;
+        padding-top: 70px;
+    }
+    .product {
+        margin: 7px;
+    }
+    .product-name {
+        font-size: 20px;
+        padding-bottom: 5px;
+    }
+    .product-button{
+        font-size: 15px;
+        padding: 6px 5px;
+        border-radius: 10px;
     }
 }

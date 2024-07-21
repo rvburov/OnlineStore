@@ -26,14 +26,12 @@
                                     {% csrf_token %}
                                     <input class="cart-product-delete" type="submit" value="➖">
                                 </form>
-                                <p>{{ cart.weight }}</p>
-                                <p>кг</p>
+                                <p>{{ cart.weight }} кг</p>
                                 <form action="{% url 'cart:cart_add' cart.products.id %}" method="post">
                                     {% csrf_token %}
                                     <input class="cart-product-add" type="submit" value="➕">
                                 </form>
-                                <p>{{ cart.price }}</p>
-                                <p><span>&#8381</span></p>
+                                <p>{{ cart.price }} &#8381</p>
                             </figcaption>
                         </figure>
                     {% endfor %}
@@ -60,15 +58,13 @@
                                     <input type="hidden" name="product_id" value="{{ cart.product.id }}">
                                     <input class="cart-product-delete" type="submit" value="➖">
                                 </form>
-                                <p>{{ cart.weight }}</p>
-                                <p>кг</p>
+                                <p>{{ cart.weight }} кг</p>
                                 <form action="{% url 'cart:cart_add' cart.product.id %}" method="post">
                                     {% csrf_token %}
                                     <input type="hidden" name="product_id" value="{{ cart.product.id }}">
                                     <input class="cart-product-add" type="submit" value="➕">
                                 </form>
-                                <p>{{ cart.price }}</p>
-                                <p><span>&#8381;</span></p>
+                                <p>{{ cart.price }} &#8381</p>
                             </figcaption>
                         </figure>
                     {% endfor %}
