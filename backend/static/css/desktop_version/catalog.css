@@ -202,7 +202,7 @@
         border-radius: 5px;
     }
     .product-button-delete, .product-button-add {
-        font-size: 15px;
-        padding: 4px 10px;
+        font-size: 12px;
+        padding: 4px 8px;
     }
 }
