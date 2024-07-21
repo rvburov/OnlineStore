@@ -94,7 +94,12 @@
 /* Стиль для просмотра истории заказов необходимо зарегистрироваться */
 
 .order-history-registration{
-    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
+    width: 600;
+    margin: 100px 0;
 }
 
 @media (max-width: 820px) {
@@ -130,6 +135,10 @@
         font-size: 20px;
         padding: 20px;
         margin-bottom: 20px 0;
+    }
+    .order-history-registration{
+        margin: 400px 0;
+        text-align: center;
     }
 }
 

@@ -95,7 +95,7 @@ def history_orders(request):
         template = 'orders/orders-history.html'
         return render(request, template, context)
     else:
-        message = "Для просмотра истории заказов необходимо зарегистрироваться."
+        message = "Для просмотра истории заказов необходимо"
         context = {
             'message': message,
         }
