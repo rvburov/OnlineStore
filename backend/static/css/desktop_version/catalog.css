@@ -157,8 +157,8 @@
 }
 @media (max-width: 415px) {
     .product-img {
-        width: 130px;
-        height: 130px;
+        width: 140px;
+        height: 140px;
     }
     .catalog{
         padding-left: 7px;
@@ -174,10 +174,12 @@
     }
     .product-button{
         font-size: 15px;
-        padding: 6px 5px;
+        padding: 5px;
         border-radius: 5px;
     }
     .product-button-delete, .product-button-add {
+        font-size: 15px;
+        padding: 5px 10px;
         border-radius: 5px;
     }
 }
@@ -197,14 +199,5 @@
     .product-name {
         font-size: 20px;
         padding-bottom: 5px;
-    }
-    .product-button{
-        font-size: 15px;
-        padding: 6px 0px;
-        border-radius: 5px;
-    }
-    .product-button-delete, .product-button-add {
-        font-size: 12px;
-        padding: 4px 8px;
     }
 }
