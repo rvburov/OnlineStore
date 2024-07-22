@@ -176,11 +176,13 @@
         font-size: 15px;
         padding: 5px;
         border-radius: 5px;
-        width: 140px;
     }
     .product-button-delete, .product-button-add {
         font-size: 15px;
         padding: 5px 10px;
+        -webkit-border-radius: 5px; /* для старых версий Safari и Chrome */
+        -moz-border-radius: 5px; /* для старых версий Firefox */
+        -ms-border-radius: 5px; /* для старых версий Internet Explorer */
         border-radius: 5px;
     }
 }
