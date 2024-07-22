@@ -80,6 +80,7 @@
     border: none;
     background-color: rgb(220, 220, 220);
     color: black;
+    margin: 0px;
 }
 
 .product-button:hover {
@@ -100,6 +101,7 @@
     border: none;
     cursor: pointer;
     background-color: rgb(220, 220, 220);
+    margin: 0px;
 }
 
 .product-button-add:hover {
@@ -153,7 +155,7 @@
         padding: 10px;
     }
 }
-@media (max-width: 400px) {
+@media (max-width: 415px) {
     .product-img {
         width: 130px;
         height: 130px;
