@@ -72,8 +72,8 @@
 }
 
 .product-button{
-    font-size: 16px;
-    padding: 7px 10px;
+    font-size: 20px;
+    padding: 3px 12px;
     border-radius: 10px;
     width: 100%;
     cursor: pointer;
@@ -180,9 +180,6 @@
     .product-button-delete, .product-button-add {
         font-size: 15px;
         padding: 5px 10px;
-        -webkit-border-radius: 5px; /* для старых версий Safari и Chrome */
-        -moz-border-radius: 5px; /* для старых версий Firefox */
-        -ms-border-radius: 5px; /* для старых версий Internet Explorer */
         border-radius: 5px;
     }
 }

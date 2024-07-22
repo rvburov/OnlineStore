@@ -33,7 +33,7 @@
                         {% else %}
                             <form action="{% url 'cart:cart_add' product.id %}" method="POST">
                                 {% csrf_token %}
-                                <input class="product-button" type="submit" name="action" value="Добавить в корзину">
+                                <input class="product-button" type="submit" name="action" value="➕">
                             </form>
                         {% endif %}
                     {% else %}
@@ -56,7 +56,7 @@
                         {% else %}
                             <form action="{% url 'cart:cart_add' product.id %}" method="POST">
                                 {% csrf_token %}
-                                <input class="product-button" type="submit" name="action" value="Добавить в корзину">
+                                <input class="product-button" type="submit" name="action" value="➕">
                             </form>
                         {% endif %}
                     {% endif %}
