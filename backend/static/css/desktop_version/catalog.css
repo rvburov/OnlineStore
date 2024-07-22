@@ -176,28 +176,11 @@
         font-size: 15px;
         padding: 5px;
         border-radius: 5px;
+        width: 140px;
     }
     .product-button-delete, .product-button-add {
         font-size: 15px;
         padding: 5px 10px;
         border-radius: 5px;
-    }
-}
-@media (max-width: 370px) {
-    .product-img {
-        width: 130px;
-        height: 130px;
-    }
-    .catalog{
-        padding-left: 7px;
-        padding-right: 7px;
-        padding-top: 70px;
-    }
-    .product {
-        margin: 7px;
-    }
-    .product-name {
-        font-size: 20px;
-        padding-bottom: 5px;
     }
 }
