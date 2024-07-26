@@ -4,57 +4,64 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 30px;
 }
 .order-list-products{
-    margin: 10px;
+    margin: 20px;
     font-size: 30px;
 }
 
 .order-product{
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin: 10px;
-    width: 700px;
+    max-width: 800px;
+    width: 100%;
+    padding: 5px 20px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-
+.order-product-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 .order-product-img{
-    margin-left: 20px;
     width: 100px;
     height: 100px;
     border-radius: 20%;
-    object-fit: contain; 
+    object-fit: contain;
     box-sizing: border-box;
 }
-
+.order-product-name{
+    font-size: 24px;
+}
 .order-product-info{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     font-size: 24px;
-    margin-right: 50px;
+    gap: 20px;
 }
-.order-product-info p{
-    padding: 10px;
-}
-
 /* Стили стоимоти заказа */
 
 .order-total-price{
-    width: 700px;
+    max-width: 800px;
+    width: 100%;
 }
 
 .order-total-price h1{
     font-size: 30px;
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .order-total-price p{
-    font-size: 20px;
-    margin: 20px;
+    font-size: 25px;
+    font-weight: 300;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 /* Стили для данных заказа */
@@ -62,8 +69,8 @@
 .order-info-pay{
     background-color: #FF6347;
     padding: 10px 40px;
-    margin: 20px 0;
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -143,7 +150,7 @@
     height: 300px;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 880px) {
     .order-list-products{
         font-size: 25px;
     }
@@ -152,45 +159,34 @@
         margin-bottom: 100px;
     }
     .order-product{
-        margin: 10px;
-        width: 500px;
+        margin: 5px;
     }
     .order-product-img{
-        width: 80px;
-        height: 80px;
-        margin-left: 20px;
+        width: 100px;
+        height: 100px;
     }
-    
     .order-product-info{
         font-size: 20px;
-        margin-right: 20px;
     }
-
-    .order-total-price{
-        width: 500px;
-    }
-    
     .order-total-price h1{
         font-size: 20px;
-        margin: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
-    
     .order-total-price p{
         font-size: 12px;
-        margin: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     .order-info-pay{
-        padding: 10px;
-        margin: 10px 0;
-        width: 500px;
         background-color: transparent; 
         box-shadow: none;
+        padding: 0;
     }
     .order-info p{
         font-size: 25px;
         margin: 20px;
     }
-    
     .order-info label {
         font-size: 18px;
     }
@@ -204,45 +200,21 @@
         margin-bottom: 20px 0;
     }
 }
-@media (max-width: 520px) {
-    .order-list-products{
-        font-size: 25px;
-    }
-    .order-product{
-        width: 380px;
-    }
+@media (max-width: 620px) {
     .order-product-img{
         width: 70px;
         height: 70px;
-        margin-left: 5px;
     }
-    
+    .order-product-name{
+        font-size: 20px;
+    }
     .order-product-info{
         font-size: 20px;
-    }
-
-    .order-total-price{
-        width: 380px;
-    }
-    
-    .order-total-price h1{
-        font-size: 20px;
-        margin: 10px;
-    }
-    
-    .order-total-price p{
-        font-size: 12px;
-        margin: 10px;
-    }
-    .order-info-pay{
-        margin: 20px 0;
-        width: 370px;
     }
     .order-info p{
         font-size: 25px;
         margin: 20px;
     }
-    
     .order-info label {
         font-size: 18px;
     }
@@ -259,32 +231,19 @@
         margin-top: 110px;
     }
 }
-@media (max-width: 400px) {
-    .order-product{
-        width: 350px;
-    }
+@media (max-width: 490px) {
     .order-product-img{
         width: 65px;
         height: 65px;
     }
+    .cart-product-name{
+        font-size: 17px;
+    }
     .order-product-info{
-        font-size: 20px;
+        font-size: 17px;
+        gap: 15px;
     }
     .cart-product-info p{
         padding: 5px;
-    }
-    .order-total-price{
-        width: 350px;
-    }
-    .order-info-pay{
-        width: 340px;
-    }
-}
-@media (max-width: 375px) {
-    .order-product{
-        width: 330px;
-    }
-    .order-product-info{
-        font-size: 15px;
     }
 }

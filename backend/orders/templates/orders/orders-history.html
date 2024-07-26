@@ -15,30 +15,30 @@
             {% else %}
             <div class="list-order-history-products">
                 {% for order in history_orders %}
+                <p class="order-history-list-products">Заказ {{ order.id }}</p>
                     <div class="order-history-info">
-                        <h1>Заказ {{ order.id }}</h1>
-                        <p> - Дата и время доставки: {{ order.time }}</p>
-                        <p class="order-status"> - Статус заказа: {{ order.get_status_display }}</p>
-                        <p> - Имя: {{ order.name }}</p>
-                        <p> - Телефон: {{ order.phone }}</p>
-                        <p> - Адрес: {{ order.address }}</p>
-                    </div>
-                    <div class="order-history-list-products">
-                        {% for order_item in order.order_item.all %}
-                            <figure class="order-history-product">
-                                <img class="order-history-product-img" src="{{ order_item.product_image.url }}" alt="{{ order_item.product_name }}">
-                                <figcaption class="order-history-product-info">
-                                    <p>{{ order_item.product_name }}</p>
-                                    <p>{{ order_item.product_weight }} кг</p>
-                                    <p>{{ order_item.product_price }} <span>&#8381</span></p>
-                                </figcaption>
-                            </figure>
-                        {% endfor %}
+                        <p> Дата и время доставки: <span>{{ order.time }}</span></p>
+                        <p> Статус заказа: <span>{{ order.get_status_display }}</span></p>
+                        <p> Имя: <span>{{ order.name }}</span></p>
+                        <p> Телефон: <span>{{ order.phone }}</span></p>
+                        <p> Адрес: <span>{{ order.address }}</span></p>
                     </div>
                     <div class="order-history-total-price">
                         <p>Итог: {{ order.total_price }} <span>&#8381</span></p>
                         <p>Доставка: {{ order.delivery_price }} <span>&#8381</span></p>
                     </div>
+                    {% for order_item in order.order_item.all %}
+                        <figure class="order-history-product">
+                            <div class="order-history-product-item">
+                                <img class="order-history-product-img" src="{{ order_item.product_image.url }}" alt="{{ order_item.product_name }}">
+                                <p class="order-history-product-name">{{ order_item.product_name }}</p>
+                            </div>
+                            <figcaption class="order-history-product-info">
+                                <p>{{ order_item.product_weight }} кг</p>
+                                <p>{{ order_item.product_price }} <span>&#8381</span></p>
+                            </figcaption>
+                        </figure>
+                    {% endfor %}
                     {% if order.status == 'waiting' %}
                         <form action="{% url 'orders:orders_delete' order.id %}" method="post">
                             {% csrf_token %}
