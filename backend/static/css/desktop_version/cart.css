@@ -22,6 +22,7 @@
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    position: relative;
 }
 .cart-product-item{
     display: flex;
@@ -43,7 +44,6 @@
     display: flex;
     align-items: center;
     font-size: 24px;
-    gap: 20px;
 }
 .cart-product-delete, .cart-product-add{
     border-radius: 50%;
@@ -54,6 +54,11 @@
     cursor: pointer;
     box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
     font-size: 20px;
+}
+.cart-product-weight, .cart-product-price {
+    width: 80px; 
+    text-align: center; 
+    flex-shrink: 0;
 }
 
 .sum-cart-products{
@@ -87,7 +92,7 @@
     align-items: center;
     flex-direction: column;
     font-size: 30px;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 .cart-logo img{
@@ -134,12 +139,14 @@
     }
     .cart-product-info{
         font-size: 15px;
-        gap: 5px;
     }
     .cart-product-delete, .cart-product-add{
         width: 40px;
         height: 40px;
         font-size: 15px;
+    }
+    .cart-product-weight, .cart-product-price {
+        width: 60px;
     }
     .sum-cart-products button{
         font-size: 20px;
@@ -169,7 +176,6 @@
     }
     .cart-product-info{
         font-size: 15px;
-        gap: 5px;
     }
     .cart-product-info p{
         padding: 5px;
@@ -178,6 +184,9 @@
         width: 40px;
         height: 40px;
         font-size: 10px;
+    }
+    .cart-product-weight, .cart-product-price {
+        width: 40px;
     }
     .sum-cart-products button{
         font-size: 20px;
@@ -205,16 +214,32 @@
 }
 @media (max-width: 400px) {
     .cart-product-img{
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
     }
     .cart-product-info{
         font-size: 15px;
-        gap: 2px;
     }
     .cart-product-delete, .cart-product-add{
         width: 30px;
         height: 30px;
         font-size: 10px;
+    }
+}
+@media (max-width: 365) {
+    .cart-product-img{
+        width: 40px;
+        height: 40px;
+    }
+    .cart-product-info{
+        font-size: 15px;
+    }
+    .cart-product-delete, .cart-product-add{
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+    .cart-product-weight, .cart-product-price {
+        width: 30px;
     }
 }

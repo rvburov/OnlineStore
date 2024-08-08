@@ -15,7 +15,7 @@
             {% else %}
             <div class="list-order-history-products">
                 {% for order in history_orders %}
-                <p class="order-history-list-products">Заказ {{ order.id }}</p>
+                <p class="order-history-list-products">Дата заказа {{ order.created_at }}</p>
                     <div class="order-history-info">
                         <p> Дата и время доставки: <span>{{ order.time }}</span></p>
                         <p> Статус заказа: <span>{{ order.get_status_display }}</span></p>
@@ -34,8 +34,8 @@
                                 <p class="order-history-product-name">{{ order_item.product_name }}</p>
                             </div>
                             <figcaption class="order-history-product-info">
-                                <p>{{ order_item.product_weight }} кг</p>
-                                <p>{{ order_item.product_price }} <span>&#8381</span></p>
+                                <p class="order-history-product-weight">{{ order_item.product_weight }} кг</p>
+                                <p class="order-history-product-price">{{ order_item.product_price }} &#8381</p>
                             </figcaption>
                         </figure>
                     {% endfor %}

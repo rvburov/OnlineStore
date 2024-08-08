@@ -39,7 +39,9 @@
                     {% endfor %}
                     <div class="sum-cart-products">
                         <a href="{% url 'orders:orders' %}">
-                        <button>Перейти к заказу {{ total_price }} <span>&#8381</span></button>
+                            <button>
+                                Перейти к заказу {{ total_price }} <span>&#8381</span>
+                            </button>
                         </a>
                     </div>
                 {% endif %}
@@ -62,13 +64,13 @@
                                     <input type="hidden" name="product_id" value="{{ cart.product.id }}">
                                     <input class="cart-product-delete" type="submit" value="➖">
                                 </form>
-                                <p>{{ cart.weight }} кг</p>
+                                <p class="cart-product-weight">{{ cart.weight }} кг</p>
                                 <form action="{% url 'cart:cart_add' cart.product.id %}" method="post">
                                     {% csrf_token %}
                                     <input type="hidden" name="product_id" value="{{ cart.product.id }}">
                                     <input class="cart-product-add" type="submit" value="➕">
                                 </form>
-                                <p>{{ cart.price }} &#8381</p>
+                                <p class="cart-product-price">{{ cart.price }} &#8381</p>
                             </figcaption>
                         </figure>
                     {% endfor %}

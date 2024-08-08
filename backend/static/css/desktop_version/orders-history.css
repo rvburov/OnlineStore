@@ -4,18 +4,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px;
 }
 .order-history-list-products{
     margin: 20px;
     font-size: 30px;
+    line-height: 1.5;
+    text-align: center;
 }
 .order-history-product{
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    margin: 10px auto;
     max-width: 800px;
-    width: 100%;
+    width: calc(100% - 40px);
     padding: 5px 20px;
     background-color: white;
     border-radius: 20px;
@@ -41,7 +42,11 @@
     display: flex;
     align-items: center;
     font-size: 30px;
-    gap: 20px;
+}
+.order-history-product-weight, .order-history-product-price{
+    width: 80px; 
+    text-align: center; 
+    flex-shrink: 0;
 }
 
 /* Стили данных заказа */
@@ -121,7 +126,11 @@
 }
 
 @media (max-width: 880px) {
+    .list-order-history-products{
+        margin: auto 10px;
+    }
     .order-history-list-products{
+        margin: 20px 5px;
         font-size: 25px;
     }
     .list-order-history-products{
@@ -161,24 +170,37 @@
     .order-history-product-info{
         font-size: 20px;
     }
+    .order-history-product-weight, .order-history-product-price{
+        width: 60px;
+    }
     .order-history-logo{
         margin-top: 110px;
     }
 }
 
 @media (max-width: 490px) {
+    .order-history-list-products{
+        font-size: 22px;
+    }
     .order-history-product-img{
         width: 65px;
         height: 65px;
     }
     .order-history-product-name{
-        font-size: 17px;
+        font-size: 15px;
     }
     .order-history-product-info{
-        font-size: 17px;
-        gap: 15px;
+        font-size: 15px;
+    }
+    .order-history-product-weight, .order-history-product-price{
+        width: 50px;
     }
     .order-history-registration{
         margin: 300px 0;
+    }
+}
+@media (max-width: 370px) {
+    .order-history-product-weight, .order-history-product-price{
+        width: 40px;
     }
 }

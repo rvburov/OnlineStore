@@ -13,8 +13,10 @@
     box-sizing: border-box;
     padding: 10px;
     max-width: 220px;
+    height: 360px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     margin: 20px;
+    position: relative;
 }
 
 .product-img {
@@ -28,7 +30,7 @@
 /* Дополнительные стили для текста и кнопок */
 
 .product-name {
-    font-size: 25px;
+    font-size: 20px;
     padding-bottom: 10px;
 }
 
@@ -45,16 +47,22 @@
     padding-bottom: 5px;
 }
 
-.product-button{
+.product-button {
     font-size: 20px;
     padding: 3px 12px;
     border-radius: 20px;
-    width: 100%;
+    width: calc(100% - 20px); /* чтобы учитывать отступы */
     cursor: pointer;
     border: none;
     background-color: rgb(220, 220, 220);
     color: black;
-    margin: 0px;
+    margin: 5px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .product-button:hover {
@@ -62,10 +70,15 @@
     color: white;
 }
 
-.product-button-container{
+.product-button-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 5px; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .product-button-delete, .product-button-add {
@@ -75,8 +88,9 @@
     border: none;
     cursor: pointer;
     background-color: rgb(220, 220, 220);
-    margin: 0px;
+    margin: 5px;
 }
+
 
 .product-button-add:hover {
     background-color: black;
@@ -88,48 +102,25 @@
     color: white;
 }
 
-.product-cart-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.product-cart-button button{
-    border: none;
-    background-color: #A1312B;
-    color: white;
-    font-size: 30px;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.product-cart-button button:hover {
-    color: #FF6347; 
-}
-
 @media (max-width: 880px) {
     .catalog{
         padding-left: 10px;
         padding-right: 10px;
-        padding-top: 80px;
+        padding-top: 90px;
         padding-bottom: 100px;
     }
     .product {
         margin: 10px;
+        max-width: 180px;
+        height: 320px;
     }
     .product-img {
-        width: 140px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
     }
     .product-name {
-        font-size: 20px;
+        font-size: 18px;
         padding-bottom: 10px;
-    }    
-    .product-cart-button button{
-        display: none;
     }
 }
 @media (max-width: 540px) {
@@ -139,6 +130,10 @@
     }
     .product {
         margin: 5px;
+    }
+    .product-img {
+        width: 160px;
+        height: 160px;
     }
     .product-name {
         padding-bottom: 5px;
@@ -153,6 +148,20 @@
         padding: 5px 10px;
         border-radius: 20px;
     }
+}
+@media (max-width: 400px) {
+    .product {
+        max-width: 160px;
+        height: 300px;
+    }
+    .product-img {
+        width: 145px;
+        height: 145px;
+    }
+    .product-name {
+        font-size: 15px;
+        padding-bottom: 10px;
+    }    
 }
 @media (max-width: 355px) {
     .product-img {

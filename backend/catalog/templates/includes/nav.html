@@ -12,6 +12,7 @@
                 <button class="navigation-btn">
                     <img class="navigation-logo" src="{% static 'logo/shopping-cart.png' %}" alt=""> 
                     <p>Корзина</p>
+                    <span class="total-items-cart">{{ total_items }}</span>
                 </button>
             </a>
             <a href="{% url 'orders:orders' %}">

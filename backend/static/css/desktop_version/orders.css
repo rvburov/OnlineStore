@@ -42,7 +42,11 @@
     display: flex;
     align-items: center;
     font-size: 24px;
-    gap: 20px;
+}
+.order-product-weight, .order-product-price{
+    width: 80px; 
+    text-align: center; 
+    flex-shrink: 0;
 }
 /* Стили стоимоти заказа */
 
@@ -209,6 +213,9 @@
     .order-product-info{
         font-size: 20px;
     }
+    .order-product-weight, .order-product-price{
+        width: 60px;
+    }
     .order-info p{
         font-size: 25px;
         margin: 20px;
@@ -234,14 +241,21 @@
         width: 65px;
         height: 65px;
     }
-    .cart-product-name{
-        font-size: 17px;
+    .order-product-name{
+        font-size: 15px;
     }
     .order-product-info{
-        font-size: 17px;
-        gap: 15px;
+        font-size: 15px;
+    }
+    .order-product-weight, .order-product-price{
+        width: 50px;
     }
     .cart-product-info p{
         padding: 5px;
+    }
+}
+@media (max-width: 370px) {
+    .order-product-weight, .order-product-price{
+        width: 40px;
     }
 }

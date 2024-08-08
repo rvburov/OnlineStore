@@ -41,7 +41,6 @@ class Order(models.Model):
         verbose_name='Дата и время доставки',
         null=True,
         blank=True,
-
     )
     status = models.CharField(
         max_length=10,
@@ -56,6 +55,10 @@ class Order(models.Model):
     total_price = models.FloatField(
         verbose_name='Итоговая цена',
         default=0
+    )
+    created_at = models.DateTimeField(
+        verbose_name='Дата создания',
+        auto_now_add=True
     )
 
     class Meta:

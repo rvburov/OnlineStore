@@ -58,6 +58,8 @@ footer {
     color: white;
     background-color: #64805A;
     cursor: pointer;
+
+    position: relative;
 }
 .navigation-btn:hover {
     color: #FF6347; 
@@ -69,7 +71,23 @@ footer {
     align-items: center;
     filter: brightness(0) invert(1);
     margin-right: 8px;
-    width: 25px;
+    width: 35px;
+}
+.total-items-cart {
+    font-size: 20px;
+    background-color: #FF6347;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid black;
+    padding: 5px;
+    position: absolute;
+    top: -5px; 
+    left: 5px; 
+    width: 20px; 
+    height: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Реквизиты и контакты */
@@ -290,6 +308,14 @@ footer {
     }
     .footer-logo-open.active{
         display: none;
+    }
+    .total-items-cart {
+        font-size: 15px;
+        padding: 5px;
+        top: -2px; 
+        right: 0;
+        width: 15px; 
+        height: 15px; 
     }
 }
 @media (max-width: 620px) {
