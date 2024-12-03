@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+html, body{
+    height: 100%;
+}
+html{
+    background: rgb(240, 240, 240);
+    background-attachment: fixed;
+}
+body{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    max-width: 1300px;
+    margin: 0 auto;
+}
+header {
+    grid-area: header;
+}
+main {
+    grid-area: main;
+}
+footer {
+    grid-area: footer;
+}
+
+/* Навигация */
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #64805A;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    margin: 10px 40px;
+    overflow: hidden;
+}
+.navigation-menu{
+    display: flex;
+    align-items: center;
+}
+.navigation-btn{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    background-color: #64805A;
+    cursor: pointer;
+
+    position: relative;
+}
+.navigation-btn:hover {
+    color: #FF6347; 
+}
+.navigation-menu a, .navigation-login a {
+    text-decoration: none;
+}
+.navigation-logo{
+    align-items: center;
+    filter: brightness(0) invert(1);
+    margin-right: 8px;
+    width: 35px;
+}
+.total-items-cart {
+    font-size: 20px;
+    background-color: #FF6347;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid black;
+    padding: 5px;
+    position: absolute;
+    top: -5px; 
+    left: 5px; 
+    width: 20px; 
+    height: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Реквизиты и контакты */
+
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    padding: 30px 50px;
+    line-height: 1.5;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.footer-content-item{
+    display: flex;
+    justify-content: space-between;
+}
+.footer-logo{
+    align-items: center;
+    filter: brightness(0) invert(1);
+    margin-right: 8px;
+    width: 25px;
+}
+.product-add-button{
+    align-items: center;
+}
+.contact-item-info{
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+.requisites-item h1{
+    font-size: 20px;
+}
+.contact-item-info:hover {
+    color: #FF6347; 
+}
+.contact-item-message {
+    filter: brightness(0) invert(1);
+    padding-right: 10px;
+    padding-top: 10px;
+    width: 40px;
+}
+.contact-item-message:hover {
+    filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(60deg);
+}
+
+.requisites-item{
+    font-size: 20px;
+}
+.footer-logo-close{
+    display: none;
+}
+.footer-logo-open{
+    display: none;
+}
+.footer-menu {
+    display: none;
+}
+.footer-menu-logo{
+    display: none;
+}
+
+/* Адаптив под мобильную версию */
+
+@media (max-width: 880px) {
+    body{
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "footer"
+            "main"
+            "header";
+        margin: 0 auto;
+    }
+    .navigation{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 0px;
+        margin: 5px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        position: fixed;
+        z-index: 1000;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .navigation-menu{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navigation-btn{
+        display: block;
+        justify-content: space-between;
+        font-size: 20px;
+        border-radius: 10px;
+        border: none;
+        padding: 0px 0px;
+        color: white;
+        cursor: pointer;
+        margin: 5px 0;
+        width: 72px;
+    }
+    .navigation-btn:hover {
+        color: #FF6347; 
+    }
+    .navigation-menu a, .navigation-login a {
+        text-decoration: none;
+    }
+    .navigation-logo{
+        filter: brightness(0) invert(1);
+        margin-right: 0px;
+        width: 35px;
+        margin-top: 5px;
+    }
+    /* Реквизиты и контакты */
+    .footer-content{
+        background-color: #64805A;
+        color: white;
+        margin: 5px;
+        line-height: 1.5;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px;
+    }
+    .footer-content-item-adaptiv{
+        position: fixed;
+        z-index: 1000;
+        top: 18px;
+        right: 30px;
+    }
+    .footer-logo-open{
+        display: flex;
+        width: 30px;
+        filter: brightness(0) invert(1);
+        cursor: pointer;
+    }
+    .footer-menu {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        gap: 10px;
+    }
+    .footer-menu.active {
+        display: none;
+    }
+
+    .footer-menu-logo{
+        display: flex;
+        align-items: center;
+        width: 35px;
+        cursor: pointer;
+    }
+    
+    .footer-menu-logo.active{
+        display: none;
+    }
+    
+    
+    /* Реквизиты и контакты меню открыть */
+
+    .footer-content-item{
+        display: none;
+        flex-direction: column;
+    }
+    .footer-logo-close{
+        display: none;
+        justify-content: space-between;
+        width: 30px;
+        filter: brightness(0) invert(1);
+        cursor: pointer;
+    }
+    .footer-logo{
+        width: 30px;
+    }
+    .contact-item-info{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .contact-item-info:hover{
+        color: #FF6347; 
+    }
+    .contact-item-message{
+        filter: brightness(0) invert(1);
+        padding-right: 10px;
+        padding-top: 10px;
+        width: 40px;
+    }
+    .contact-item-message:hover{
+        filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(60deg);
+    }
+    .requisites-item{
+        font-size: 15px;
+        margin-top: 20px;
+    }
+    .requisites-item h1{
+        font-size: 20px;
+    }
+
+    .footer-content-item.active{
+        display: flex;
+    }
+    .footer-logo-close.active{
+        display: flex;
+    }
+    .footer-logo-open.active{
+        display: none;
+    }
+    .total-items-cart {
+        font-size: 15px;
+        padding: 5px;
+        top: -2px; 
+        right: 0;
+        width: 15px; 
+        height: 15px; 
+    }
+}
+@media (max-width: 620px) {
+    .navigation-btn{
+        font-size: 15px
+    }
+}
+@media (max-width: 370px) {
+    .navigation-btn{
+        font-size: 20px;
+        margin: 5px 0;
+        width: 65px;
+    }
+}

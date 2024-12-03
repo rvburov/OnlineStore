@@ -1,0 +1,83 @@
+.account{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+.account div{
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    width: 450px;
+}
+.account-img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+.account p{
+    font-size: 20px;
+    margin: 20px;
+}
+.account h1{
+    font-size: 30px;
+    margin: 20px;
+}
+.account button{
+    background-color: #A1312B;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    margin: 10px;
+    padding: 30px;
+    width: 470px;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Если нет изображния пользователя */
+
+.account-logo{
+    height: 100px;
+}
+
+@media (max-width: 820px) {
+    .account{
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 520px) {
+    .account div{
+        margin: 5px;
+        padding: 5px;
+        width: 350px;
+    }
+    .account p{
+        font-size: 18px;
+    }
+    .account button{
+        margin: 5px;
+        padding: 20px;
+        width: 370px;
+        font-size: 20px;
+    }
+}
+@media (max-width: 380px) {
+    .account div{
+        width: 340px;
+    }
+    .account p{
+        font-size: 18px;
+    }
+    .account button{
+        width: 350px;
+    }
+}

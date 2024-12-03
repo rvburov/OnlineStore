@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-g@!9d%u+*mco59)meg$v56jb#gam5n3n3m72suaf5d+0jb^xgr'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['mr-tomato.hopto.org', '84.201.187.46', '127.0.0.1', 'localhost']
 

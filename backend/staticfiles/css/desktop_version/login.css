@@ -1,0 +1,159 @@
+/* Вход в личный кабинет */
+.login-container{
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+}
+.login-container-account{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+.login-item {
+    padding: 0 30px;
+    border-radius: 20px;
+    width: 320px;
+}
+.login-item p {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.login-item label {
+    font-size: 20px;
+}
+
+.login-item input {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #FF6347;
+}
+
+.errors {
+    color: red;
+    font-size: 14px;
+    margin: 10px;
+}
+
+/* Кнопка входа в личный кабинет */
+
+.login-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.login-button button {
+    border: none;
+    background-color: #A1312B;
+    color: white;
+    font-size: 20px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.login-button button:hover {
+    color: #FF6347;
+}
+
+/* Текст забыл пароль и регистрация */
+
+.login-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-links p {
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+.login-links a:hover {
+    color: white;
+}
+
+/* Забыл пароль в личный кабинет */
+
+
+/* Ссылка на восстановление пароля была отправлена на ваш email. */
+
+.message-email{
+    font-size: 30px;
+}
+
+/* Выход из личного кабинета */
+
+.logout{
+    font-size: 25px;
+    margin: 0; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+/* Изменения пароля */
+
+.form-password-change p{
+    font-size: 14px;
+}
+
+.form-password-change{
+    margin-top: 30px;
+}
+
+.login-links-password_change p{
+    font-size: 20px;
+}
+
+/* Удаление аккаунта */
+
+.account-delete p{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* Регистрация аккаунта */
+
+.form-registration p{
+    font-size: 15px;
+    margin: 0;
+}
+
+@media (max-width: 820px) {
+    .logout{
+        font-size: 20px;
+    }
+    .login-button button {
+        font-size: 20px;
+    }
+    .login-item {
+        background-color: transparent; 
+        box-shadow: none;
+    }
+    .login-container-account{
+        margin: 100px 0;
+    }
+    .message-email{
+        font-size: 20px;
+    }
+    .account-delete{
+        padding-top: 200px;
+    }
+}
+@media (max-width: 375px) {
+    .login-container{
+        margin: 70px 0px;
+    }
+}

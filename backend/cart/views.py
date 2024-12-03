@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from cart.models import Cart
 from catalog.models import Product
+from django.http import JsonResponse
 
 class CartView(View):
     """Представление для отображения корзины покупок"""
@@ -46,6 +47,10 @@ class CartAddView(View):
             cart.weight += 0.5
             cart.price = cart.weight * product.fix_price
             cart.save()
+
+            total_price = sum(item.weight * item.products.fix_price for item in Cart.objects.filter(user=request.user))
+            # Общее количество товаров в корзине в навигаторе
+            total_items = Cart.objects.filter(user=request.user).count()
         else:
             # Если пользователь не аутентифицирован, обновляем корзину в сессии
             cart = request.session.get('cart', {})
@@ -55,8 +60,20 @@ class CartAddView(View):
                 cart[str(product_id)] = 0.5
             request.session['cart'] = cart
             request.session.modified = True
+
+            total_price = sum(
+                weight * Product.objects.get(id=int(product_id)).fix_price
+                for product_id, weight in cart.items()
+            )
+            # Общее количество товаров в корзине в навигаторе
+            total_items = len(cart)
         # Перенаправляем обратно на страницу, с которой пришел запрос
-        return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))
+        return JsonResponse({
+            "weight": cart.weight if request.user.is_authenticated else cart[str(product_id)],
+            "price": cart.price if request.user.is_authenticated else cart[str(product_id)] * product.fix_price,
+            "total_price": total_price,
+            "total_items": total_items,  # Общее количество товаров в корзине в навигаторе
+        })
 
 class CartRemoveView(View):
     """Представление для удаления продукта из корзины"""
@@ -65,6 +82,8 @@ class CartRemoveView(View):
         """Обрабатывает POST-запрос для удаления продукта из корзины"""
 
         product = get_object_or_404(Product, id=product_id)
+        product_removed = False  # Флаг для удаления продукта из корзины
+        is_cart_empty = False  # Флаг для проверки, пуста ли корзина
         if request.user.is_authenticated:
             # Если пользователь аутентифицирован, обновляем корзину в базе данных
             cart = Cart.objects.filter(products=product, user=request.user).first()
@@ -75,6 +94,14 @@ class CartRemoveView(View):
                     cart.save()
                 else:
                     cart.delete()
+                    product_removed = True  # Обновляем флаг при удалении продукта
+            # Проверка, пуста ли корзина
+            is_cart_empty = not Cart.objects.filter(user=request.user).exists()
+            total_price = sum(
+                item.weight * item.products.fix_price
+                for item in Cart.objects.filter(user=request.user)
+            )
+            total_items = Cart.objects.filter(user=request.user).count()
         else:
             # Если пользователь не аутентифицирован, обновляем корзину в сессии
             cart = request.session.get('cart', {})
@@ -83,7 +110,25 @@ class CartRemoveView(View):
                     cart[str(product_id)] -= 0.5
                 else:
                     del cart[str(product_id)]
+                    product_removed = True  # Обновляем флаг при удалении продукта
                 request.session['cart'] = cart
                 request.session.modified = True
-        # Перенаправляем обратно на страницу, с которой пришел запрос
-        return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))
+
+            # Проверка, пуста ли корзина
+            is_cart_empty = not cart
+            # Пересчитываем общую стоимость корзины для сессии
+            total_price = sum(
+                weight * Product.objects.get(id=int(product_id)).fix_price
+                for product_id, weight in cart.items()
+            )
+            total_items = len(cart)
+
+        # Возвращаем JSON-ответ с актуальными данными
+        return JsonResponse({
+            "weight": 0 if product_removed else (cart.weight if request.user.is_authenticated else cart.get(str(product_id), 0)),
+            "price": 0 if product_removed else (cart.price if request.user.is_authenticated else cart.get(str(product_id), 0) * product.fix_price),
+            "total_price": total_price,
+            "total_items": total_items,  # Общее количество товаров
+            "removed": product_removed,  # Указывает, что продукт удалён
+            "is_cart_empty": is_cart_empty,  # Указывает, пуста ли корзина
+        })
