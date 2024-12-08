@@ -7,7 +7,16 @@
 mr-tomato/
 │
 ├── backend/
-│   └── index.py             # Основной файл с кодом
+│   └── config/
+│       └── settings.py               
+│   └── core/
+│   └── data/
+│   └── homepages/
+│   └── madia/
+│   └── static/
+│   └── users/
+│   └── catalog/
+│   └── cart/
 ├── venv/                    # Виртуальное окружение (не добавляйте в Git)
 ├── .gitignore               # Исключение виртуального окружения из репозитория
 ├── requirements.txt         # Зависимости проекта
@@ -35,7 +44,7 @@ pip install --upgrade pip           # Обновляем `pip` до послед
 pip install -r requirements.txt     # Устанавливаем зависимости из `requirements.txt`
 ```
 
-### 2. Запуск серверана локальной машине
+### 2. Запуск сервера на локальной машине
 
 **Применение миграций**
 ```bash
