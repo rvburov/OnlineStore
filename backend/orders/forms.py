@@ -23,7 +23,7 @@ class OrderForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={
                 'placeholder': '+7 (***) ***-**-**',
                 'required': 'required',
-                'pattern': '\+7\(\d{3}\)\d{3}-\d{2}-\d{2}',
+                'pattern': r'\+7\(\d{3}\)\d{3}-\d{2}-\d{2}',
                 'title': 'Введите номер телефона в формате +7(XXX)XXX-XX-XX',
             }),
             'address': forms.TextInput(attrs={
