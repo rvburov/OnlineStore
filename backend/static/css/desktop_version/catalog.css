@@ -15,10 +15,11 @@
 
 .category-scroll {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
+    color: black;
     border: none;
     border-radius: 60px;
-    background-color: rgb(205, 205, 205);
+    background-color:rgb(235, 105, 105);
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -144,7 +145,7 @@
     .category-buttons {
         position: fixed;
         z-index: 2000;
-        top: 80px;
+        bottom: 100px;
         left: 0;
         right: 0;
     }
