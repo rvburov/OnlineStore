@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-g@!9d%u+*mco59)meg$v56jb#gam5n3n3m72suaf5d+0jb^xgr
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['mr-tomato.hopto.org', '84.201.187.46', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['mr-tomato.hopto.org', '84.201.187.184', '127.0.0.1', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://mr-tomato.hopto.org',
