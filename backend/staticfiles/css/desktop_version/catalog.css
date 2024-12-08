@@ -1,3 +1,15 @@
+/* Стили для категории */
+.category-title {
+    font-size: 24px;
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+.category-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 /* Стили для каталога */
 
 .catalog{
@@ -47,55 +59,50 @@
     padding-bottom: 5px;
 }
 
-.product-button {
-    font-size: 20px;
-    padding: 3px 12px;
-    border-radius: 20px;
-    width: calc(100% - 20px); /* чтобы учитывать отступы */
-    cursor: pointer;
-    border: none;
-    background-color: rgb(220, 220, 220);
-    color: black;
-    margin: 5px;
+.product-quantity{
+    display: none;
+    font-size: 16px;
     position: absolute;
-    bottom: 5px;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.product-button:hover {
-    background-color: black;
-    color: white;
-}
-
-.product-button-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px; 
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.product-button-delete, .product-button-add {
+.product-button-delete {
+    display: none;
     font-size: 20px;
     padding: 3px 12px;
     border-radius: 20px;
     border: none;
     cursor: pointer;
     background-color: rgb(220, 220, 220);
-    margin: 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.product-button-add {
+    font-size: 20px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(220, 220, 220);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
 }
 
+/* Состояние после нажатия */
+.product-button-add.fixed {
+    left: auto; /* Убираем левое смещение */
+}
 
 .product-button-add:hover {
     background-color: black;
     color: white;
 }
+
 
 .product-button-delete:hover {
     background-color: black;

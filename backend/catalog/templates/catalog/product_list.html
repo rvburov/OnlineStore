@@ -5,57 +5,78 @@
     <link rel="stylesheet" href="{% static 'css/desktop_version/catalog.css' %}">
 {% endblock %}
 {% block content %}
+    <div class="category-buttons">
+        {% for category, _ in products_by_category %}
+            <button class="category-scroll" onclick="scrollToCategory('{{ forloop.counter }}')">
+                {{ category }}
+            </button>
+        {% endfor %}
+    </div>
     <section class="catalog">
-        {% for product in products %}
-            <!-- Серверный рендеринг: Убедитесь, 
-             что сервер добавляет актуальный вес каждого продукта в качестве data-weight. 
-             Это сделает фронтенд код более устойчивым. -->
-            <figure class="product" data-product-id="{{ product.id }}">
-                <img class="product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
-                <figcaption>
-                    <p class="product-name"><b>{{ product.name }}</b></p>
-                    <p class="product-price">{{ product.fix_price }}<span>₽</span></p>
-                    <p class="product-weight">Стоимость за 1 кг</p>
-                    {% if request.user.is_authenticated %}
-                        <div class="product-button-container">
-                            <form action="{% url 'cart:cart_remove' product.id %}" method="POST">
-                                {% csrf_token %}
-                                <input class="product-button-delete" type="submit" name="action" value="➖">
-                            </form>
-                            <p class="product-quantity">
-                                {% for cart_product in cart_products %}
-                                    {% if cart_product.products_id == product.id %}
-                                        {{ cart_product.weight }} кг
-                                    {% endif %}
-                                {% endfor %}
-                            </p>
-                            <form action="{% url 'cart:cart_add' product.id %}" method="POST">
-                                {% csrf_token %}
-                                <input class="product-button-add" id="productButton" type="submit" name="action" value="➕">
-                            </form>
-                        </div>
-                    {% else %}
-                        <div class="product-button-container">
-                            <form action="{% url 'cart:cart_remove' product.id %}" method="POST">
-                                {% csrf_token %}
-                                <input class="product-button-delete" type="submit" name="action" value="➖">
-                            </form>
-                            <p class="product-quantity">
-                                {% for cart_product in cart_products %}
-                                    {% if cart_product.products_id == product.id %}
-                                        {{ cart_product.weight }} кг
-                                    {% endif %}
-                                {% endfor %}
-                            </p>
-                            <form action="{% url 'cart:cart_add' product.id %}" method="POST">
-                                {% csrf_token %}
-                                <input class="product-button-add" id="productButton" type="submit" name="action" value="➕">
-                            </form>
-                        </div>
-                    {% endif %}
-                </figcaption> 
-            </figure>
+        {% for category, products in products_by_category %}
+            <h2 id="{{ forloop.counter }}" class="category-title">{{ category }}</h2>
+            <div class="category-products">
+                {% for product in products %}
+                    <!-- Серверный рендеринг через AJEX data-product-id="{{ product.id }}" -->
+                    <figure class="product" data-product-id="{{ product.id }}">
+                        <img class="product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <figcaption>
+                            <p class="product-name"><b>{{ product.name }}</b></p>
+                            <p class="product-price">{{ product.fix_price }}<span>₽</span></p>
+                            <p class="product-weight">Стоимость за 1 кг</p>
+                            {% if request.user.is_authenticated %}
+                                <div class="product-button-container">
+                                    <form action="{% url 'cart:cart_remove' product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input class="product-button-delete" type="submit" name="action" value="➖">
+                                    </form>
+                                    <p class="product-quantity">
+                                        {% for cart_product in cart_products %}
+                                            {% if cart_product.products_id == product.id %}
+                                                {{ cart_product.weight }} кг
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                    <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input class="product-button-add" id="productButton" type="submit" name="action" value="➕">
+                                    </form>
+                                </div>
+                            {% else %}
+                                <div class="product-button-container">
+                                    <form action="{% url 'cart:cart_remove' product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input class="product-button-delete" type="submit" name="action" value="➖">
+                                    </form>
+                                    <p class="product-quantity">
+                                        {% for cart_product in cart_products %}
+                                            {% if cart_product.products_id == product.id %}
+                                                {{ cart_product.weight }} кг
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                    <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input class="product-button-add" id="productButton" type="submit" name="action" value="➕">
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </figcaption> 
+                    </figure>
+                {% endfor %}
+            </div>
         {% endfor %}
     </section>
     <script src="{% static 'js/AJAX.js' %}"></script>
+    <script>
+        function scrollToCategory(categoryId) {
+            const target = document.getElementById(categoryId);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth', // Плавная прокрутка
+                    block: 'start', // Прокрутка так, чтобы заголовок оказался вверху
+                });
+            }
+        }
+    </script>
 {% endblock %}

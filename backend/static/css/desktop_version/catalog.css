@@ -1,3 +1,45 @@
+/* Стили кнопок категорий */
+.category-buttons {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Добавляет горизонтальный скролл */
+    white-space: nowrap; /* Избегаем переноса кнопок */
+    scrollbar-width: none; /* Firefox скрыть полосу прокрутки */
+    -ms-overflow-style: none; /* скрыть полосу прокрутки IE и старый Edge */
+    margin: 0 auto; /* Центрирует блок по горизонтали */
+    max-width: 90%; /* Ограничивает ширину */
+}
+.category-buttons::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.category-scroll {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 60px;
+    background-color: rgb(205, 205, 205);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-scroll:hover {
+    background-color: #ddd;
+}
+
+/* Стили для категории */
+.category-title {
+    font-size: 24px;
+    margin: 0px;
+    text-align: left;
+    scroll-margin-top: 135px; /* Высота фиксированного заголовка */
+}
+
+.category-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 /* Стили для каталога */
 
 .catalog{
@@ -98,10 +140,22 @@
 }
 
 @media (max-width: 880px) {
+    /* Стили кнопок категорий */
+    .category-buttons {
+        position: fixed;
+        z-index: 2000;
+        top: 80px;
+        left: 0;
+        right: 0;
+    }
+    /* Стили для категории */
+    .category-title {
+        margin: 10px;
+    }
     .catalog{
         padding-left: 10px;
         padding-right: 10px;
-        padding-top: 90px;
+        padding-top: 130px;
         padding-bottom: 100px;
     }
     .product {
