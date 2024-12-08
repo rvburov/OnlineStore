@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/desktop_version/base.css' %}">
     {% block css %}{% endblock %}
 </head>
-<body>
+<body data-user-authenticated="{{ request.user.is_authenticated }}">
     <nav>
         {% include "includes/nav.html" %} <!-- Навигация -->
     </nav>
@@ -23,4 +23,5 @@
         {% include "includes/footer.html" %} <!-- Основной контент -->
     </footer>
 </body>
+<script src="{% static 'js/AJAX.js' %}"></script>
 </html>

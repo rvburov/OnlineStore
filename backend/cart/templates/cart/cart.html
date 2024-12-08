@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} Список покупок {% endblock %}
+{% block title %} Корзина {% endblock %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/desktop_version/cart.css' %}">
 {% endblock %}
@@ -18,13 +18,13 @@
                         Список продуктов в корзине:
                     </p>
                     {% for cart in carts %}
-                        <figure class="cart-product">
+                        <figure class="cart-product" data-product-id="{{ cart.products.id }}">
                             <div class="cart-product-item">
                                 <img class="cart-product-img" src="{{ cart.products.image.url }}" alt="{{ cart.products.name }}">
                                 <p class="cart-product-name">{{ cart.products.name }}</p>
                             </div>
                             <figcaption class="cart-product-info">
-                                <form action="{% url 'cart:cart_remove' cart.products.id %}" method="post">
+                                <form action="{% url 'cart:cart_remove' cart.products.id %}" method="post" data-product-id="{{ cart.products.id }}">
                                     {% csrf_token %}
                                     <input class="cart-product-delete" type="submit" value="➖">
                                 </form>
@@ -53,7 +53,7 @@
                         Список продуктов в корзине:
                     </p>
                     {% for cart in carts %}
-                        <figure class="cart-product">
+                        <figure class="cart-product" data-product-id="{{ cart.products.id }}">
                             <div class="cart-product-item">
                                 <img class="cart-product-img" src="{{ cart.product.image.url }}" alt="{{ cart.product.name }}">
                                 <p class="cart-product-name">{{ cart.product.name }}</p>
@@ -61,7 +61,7 @@
                             <figcaption class="cart-product-info">
                                 <form action="{% url 'cart:cart_remove' cart.product.id %}" method="post">
                                     {% csrf_token %}
-                                    <input type="hidden" name="product_id" value="{{ cart.product.id }}">
+                                    <input type="hidden" name="product_id" value="{{ cart.product.id }}" data-product-id="{{ cart.products.id }}">
                                     <input class="cart-product-delete" type="submit" value="➖">
                                 </form>
                                 <p class="cart-product-weight">{{ cart.weight }} кг</p>
@@ -90,5 +90,6 @@
             </section>
         {% endif %}
     </main>
-    <script src="{% static 'js/AJAX.js' %}"></script>
+    <script src="{% static 'js/AJAX.js' %}?v=1.0.1"></script>
+    <!-- Добавление параметра версии (?v=1.0.1) в URL гарантирует, что браузер загрузит свежую копию файла, игнорируя кэш. -->
 {% endblock %}

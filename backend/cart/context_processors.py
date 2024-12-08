@@ -1,5 +1,4 @@
 from .models import Cart
-from catalog.models import Product
 
 def cart_total_items(request):
     if request.user.is_authenticated:

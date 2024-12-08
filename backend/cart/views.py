@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 from cart.models import Cart
 from catalog.models import Product
@@ -67,10 +67,11 @@ class CartAddView(View):
             )
             # Общее количество товаров в корзине в навигаторе
             total_items = len(cart)
+
         # Перенаправляем обратно на страницу, с которой пришел запрос
         return JsonResponse({
-            "weight": cart.weight if request.user.is_authenticated else cart[str(product_id)],
-            "price": cart.price if request.user.is_authenticated else cart[str(product_id)] * product.fix_price,
+            "weight": cart.weight if request.user.is_authenticated else cart.get(str(product_id), 0),
+            "price": cart.price if request.user.is_authenticated else cart.get(str(product_id), 0) * product.fix_price,
             "total_price": total_price,
             "total_items": total_items,  # Общее количество товаров в корзине в навигаторе
         })
