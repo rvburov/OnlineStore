@@ -1,18 +1,19 @@
 import os
 from pathlib import Path
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = 'django-insecure-g@!9d%u+*mco59)meg$v56jb#gam5n3n3m72suaf5d+0jb^xgr'
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = True
+SECRET_KEY = config('SECRET_KEY')
 
-ALLOWED_HOSTS = ['mr-tomato.hopto.org', '84.201.187.184', '127.0.0.1', 'localhost']
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://mr-tomato.hopto.org',
-]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='').split(',')
 
 DJANGO_APPS = [
     'django.contrib.admin',
