@@ -6,6 +6,7 @@ from .models import Order, OrderItem
 from catalog.models import Product
 from .forms import OrderForm
 from .telegram_message import send_telegram_message_sync
+from decouple import config
 
 class OrdersView(View):
     """Представление для отображения заказа покупок"""
@@ -100,8 +101,8 @@ class OrdersAddView(View):
         message += f'Итоговая стоимость: {order.total_price}\n'
         message += f'Стоимость доставки: {order.delivery_price}\n'
 
-        chat_ids = ['784184639', '535774072']
-        send_telegram_message_sync(chat_ids, message)
+        # Использование ID чатов из .env
+        send_telegram_message_sync(config('TELEGRAM_CHAT_IDS').split(','), message)
 
     def _render_error_message(self, request, message):
         """Отображает сообщение об ошибке пользователю"""

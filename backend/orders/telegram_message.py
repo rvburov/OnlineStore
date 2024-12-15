@@ -1,8 +1,11 @@
+from decouple import config
 from telegram import Bot
 from telegram.error import TelegramError
 from asgiref.sync import async_to_sync
 
-BOT_TOKEN = '6540201432:AAHgduvHpaBb7NOn1oR8Ph3-PPmuDHmFL-k'
+# Получение токена и ID чатов из .env
+BOT_TOKEN = config('TELEGRAM_BOT_TOKEN')
+CHAT_IDS = config('TELEGRAM_CHAT_IDS').split(',')
 
 async def send_telegram_message_async(chat_ids, text):
     try:
@@ -15,3 +18,4 @@ async def send_telegram_message_async(chat_ids, text):
         return False
 
 send_telegram_message_sync = async_to_sync(send_telegram_message_async)
+
