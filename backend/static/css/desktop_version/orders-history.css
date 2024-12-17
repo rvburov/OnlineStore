@@ -102,11 +102,18 @@
 
 .order-history-logo{
     display: flex;
-    justify-content: center; 
-    align-items: center;
     flex-direction: column;
+    justify-content: center; /* Выравнивание содержимого по вертикали */
+    align-items: center; /* Выравнивание содержимого по горизонтали */
+    text-align: center;
     font-size: 30px;
-    margin-top: 60px;
+    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 600px; /* Ограничение максимальной ширины */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Сдвиг от верхнего края на 50% */
+    left: 50%; /* Сдвиг от левого края на 50% */
+    transform: translate(-50%, -50%); /* Центрирование относительно собственного размера */
+    margin: 0; /* Убираем отступы */
 }
 
 .order-history-logo img{
@@ -116,13 +123,20 @@
 
 /* Стиль для просмотра истории заказов необходимо зарегистрироваться */
 
-.order-history-registration{
+.order-history-registration {
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Выравнивание содержимого по вертикали */
+    align-items: center; /* Выравнивание содержимого по горизонтали */
     text-align: center;
     font-size: 20px;
-    width: 600;
-    margin: 100px 0;
+    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 600px; /* Ограничение максимальной ширины */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Сдвиг от верхнего края на 50% */
+    left: 50%; /* Сдвиг от левого края на 50% */
+    transform: translate(-50%, -50%); /* Центрирование относительно собственного размера */
+    margin: 0; /* Убираем отступы */
 }
 
 @media (max-width: 880px) {
@@ -153,10 +167,6 @@
         padding: 10px;
         margin-bottom: 20px 0;
     }
-    .order-history-registration{
-        margin: 350px 0;
-        text-align: center;
-    }
 }
 
 @media (max-width: 620px) {
@@ -172,9 +182,6 @@
     }
     .order-history-product-weight, .order-history-product-price{
         width: 60px;
-    }
-    .order-history-logo{
-        margin-top: 110px;
     }
 }
 
@@ -194,9 +201,6 @@
     }
     .order-history-product-weight, .order-history-product-price{
         width: 50px;
-    }
-    .order-history-registration{
-        margin: 300px 0;
     }
 }
 @media (max-width: 370px) {

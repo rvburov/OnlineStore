@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # Режим отладки: включается/выключается через переменные окружения
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
 # Разрешенные хосты для развертывания проекта
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
