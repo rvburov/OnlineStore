@@ -1,39 +1,53 @@
-/* Стили кнопок категорий!!! */
+/* Стили кнопок категорий */
 .category-buttons {
     display: flex;
     gap: 10px;
     overflow-x: auto; /* Добавляет горизонтальный скролл */
     white-space: nowrap; /* Избегаем переноса кнопок */
     scrollbar-width: none; /* Firefox скрыть полосу прокрутки */
-    -ms-overflow-style: none; /* скрыть полосу прокрутки IE и старый Edge */
+    -ms-overflow-style: none; /* Скрыть полосу прокрутки IE и старый Edge */
     margin: 0 auto; /* Центрирует блок по горизонтали */
-    max-width: 90%; /* Ограничивает ширину */
+    max-width: 1220px; /* Ограничивает ширину */
+    background-color: rgb(189, 189, 189);
+    border-radius: 10px;
+    border: none;
+    position: fixed;
+    z-index: 1000;
+    top: 90px;
+    left: 50%; /* Смещаем блок на середину */
+    transform: translateX(-50%); /* Центрируем блок относительно своей ширины */
 }
 .category-buttons::-webkit-scrollbar {
     display: none; /* Chrome, Safari */
 }
 
 .category-scroll {
-    padding: 10px 20px;
+    padding: 5px 20px;
     font-size: 18px;
     color: black;
     border: none;
-    border-radius: 60px;
-    background-color:rgb(235, 105, 105);
+    border-radius: 10px;
+    background-color: transparent;
     cursor: pointer;
     transition: background-color 0.3s;
+    border: none;
 }
 
+.category-scroll.active {
+    background-color: #666;
+    color: white;
+}
 .category-scroll:hover {
-    background-color: #ddd;
+    background-color: #666; /* Цвет фона при наведении */
+    color: white; /* Цвет текста при наведении */
 }
 
 /* Стили для категории */
 .category-title {
-    font-size: 24px;
+    font-size: 32px;
     margin: 0px;
     text-align: left;
-    scroll-margin-top: 135px; /* Высота фиксированного заголовка */
+    scroll-margin-top: 145px; /* Высота фиксированного заголовка */
 }
 
 .category-products {
@@ -47,7 +61,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 140px;
+    padding-bottom: 15px;
 }
 
 .product {
@@ -143,20 +160,33 @@
 @media (max-width: 880px) {
     /* Стили кнопок категорий */
     .category-buttons {
+        gap: 0px;
         position: fixed;
-        z-index: 2000;
-        bottom: 100px;
+        margin: 0 5px;
+        z-index: 1000;
+        top: 60px;
         left: 0;
         right: 0;
+        transform: none;
+        background-color:rgb(189, 189, 189);
+        border-radius: 10px;
+    }
+    .category-scroll {
+        padding: 5px 15px;
+        font-size: 18px;
+        border-radius: 10px;
+        background-color: rgb(189, 189, 189);
     }
     /* Стили для категории */
     .category-title {
         margin: 10px;
+        font-size: 24px;
+        scroll-margin-top: 110px; /* Высота фиксированного заголовка */
     }
     .catalog{
         padding-left: 10px;
         padding-right: 10px;
-        padding-top: 130px;
+        padding-top: 100px;
         padding-bottom: 100px;
     }
     .product {

@@ -7,7 +7,7 @@
 {% block content %}
     <div class="category-buttons">
         {% for category, _ in products_by_category %}
-            <button class="category-scroll" onclick="scrollToCategory('{{ forloop.counter }}')">
+            <button class="category-scroll" data-target="{{ forloop.counter }}">
                 {{ category }}
             </button>
         {% endfor %}
@@ -68,15 +68,5 @@
         {% endfor %}
     </section>
     <script src="{% static 'js/AJAX.js' %}"></script>
-    <script>
-        function scrollToCategory(categoryId) {
-            const target = document.getElementById(categoryId);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth', // Плавная прокрутка
-                    block: 'start', // Прокрутка так, чтобы заголовок оказался вверху
-                });
-            }
-        }
-    </script>
+    <script src="{% static 'js/footer.js' %}"></script>
 {% endblock %}
