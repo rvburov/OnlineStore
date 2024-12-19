@@ -140,11 +140,18 @@
 
 .order-logo{
     display: flex;
-    justify-content: center; 
-    align-items: center;
     flex-direction: column;
+    justify-content: center; /* Выравнивание содержимого по вертикали */
+    align-items: center; /* Выравнивание содержимого по горизонтали */
+    text-align: center;
     font-size: 30px;
-    margin-top: 60px;
+    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 600px; /* Ограничение максимальной ширины */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Сдвиг от верхнего края на 50% */
+    left: 50%; /* Сдвиг от левого края на 50% */
+    transform: translate(-50%, -50%); /* Центрирование относительно собственного размера */
+    margin: 0; /* Убираем отступы */
 }
 
 .order-logo img{
@@ -231,9 +238,6 @@
         font-size: 20px;
         padding: 10px;
         margin-bottom: 20px 0;
-    }
-    .order-logo{
-        margin-top: 110px;
     }
 }
 @media (max-width: 490px) {

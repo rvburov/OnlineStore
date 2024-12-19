@@ -8,6 +8,17 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/desktop_version/base.css' %}">
+    <!-- Favicon для всех браузеров -->
+    <link rel="icon" href="{% static 'logo/favicon.ico' %}" type="image/x-icon">
+    <!-- PNG-версия для современных браузеров -->
+    <link rel="icon" href="{% static 'logo/tomato32х32.png' %}" type="image/png" sizes="32x32">
+    <!-- Значок для устройств Apple -->
+    <link rel="apple-touch-icon" href="{% static 'logo/apple-touch-icon.png' %}" sizes="180x180">
+    <!-- Значок для устройств Android -->
+    <link rel="icon" href="{% static 'logo/apple-touch-icon.png' %}" sizes="192x192">
+    <!-- Поддержка для Microsoft -->
+    <meta name="msapplication-TileImage" content="logo/apple-touch-icon.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
     {% block css %}{% endblock %}
 </head>
 <body data-user-authenticated="{{ request.user.is_authenticated }}">
